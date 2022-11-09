@@ -16,6 +16,7 @@ public class GlobalController {
      * after the user switch to game page.
      *
      *
+     *
      */
     public void startGlobalController()
     {
