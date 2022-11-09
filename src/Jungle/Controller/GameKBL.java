@@ -22,6 +22,9 @@ public class GameKBL extends KeyboardListener{
      * @param sentence command to be checked
      * @return check result
      *
+     *
+     *
+     *
      */
     @Override
     public boolean check(String sentence)
