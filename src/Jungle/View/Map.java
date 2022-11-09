@@ -17,7 +17,7 @@ public class Map implements Page{
     
     /** Initialize the game board */
     public Map(Board _board){
-
+//print map
     }
 
     /**
