@@ -15,6 +15,7 @@ public class GlobalController {
      * page, manual page and the welcome page. The game will be started
      * after the user switch to game page.
      *
+     *
      */
     public void startGlobalController()
     {
