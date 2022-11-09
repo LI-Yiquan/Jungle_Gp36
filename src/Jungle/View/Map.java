@@ -2,6 +2,8 @@ package Jungle.View;
 import Jungle.Model.Board;
 import Jungle.Model.Player;
 
+
+
 public class Map implements Page{
     /** current game board */
     private Board gameBoard;
