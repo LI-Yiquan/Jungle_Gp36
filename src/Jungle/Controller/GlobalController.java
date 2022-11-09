@@ -41,7 +41,7 @@ public class GlobalController {
      */
     public void onManual()
     {
-
+        //show manual
     }
 
     /**
@@ -53,7 +53,7 @@ public class GlobalController {
      */
     public void onGame()
     {
-
+        //start game
     }
 
     /**
@@ -62,7 +62,7 @@ public class GlobalController {
      */
     public void onQuit()
     {
-
+        //quit the game
     }
 
 }
