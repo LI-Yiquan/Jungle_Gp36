@@ -27,16 +27,12 @@ public class GlobalController {
      */
     public void startGlobalController()
     {
-
+        String input = "";
+        Scanner scan = new Scanner(System.in);
         boolean Lock = true;
         onWelcome();
         while(Lock) {
-            String input = "lll";
-            Scanner scan = new Scanner(System.in);
-            if (scan.hasNextLine()) {
-                input = scan.nextLine();
-            }
-            scan.close();
+            input = scan.nextLine();
             switch (input){
                 case "Manual":
                     onManual();
@@ -53,6 +49,7 @@ public class GlobalController {
 
             Lock = false;
         }
+        scan.close();
     }
 
     /**

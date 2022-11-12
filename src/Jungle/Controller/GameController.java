@@ -34,17 +34,15 @@ public class GameController {
         while(LOCK)
         {
             input = scan.nextLine();
-            scan.close();
             while(!gameKBL.check(input))
             {
                 scan = new Scanner(System.in);
                 input = scan.nextLine();
-
-                scan.close();
             }
             gameKBL.move(input);
             if(checkEnd()) LOCK = false;
         }
+        scan.close();
     }
 
     /**
