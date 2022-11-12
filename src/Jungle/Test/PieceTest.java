@@ -219,9 +219,9 @@ public class PieceTest {
 
         try{
             //Move Tiger and cat into the same trap and check the outcome
-            KBL.move(Tiger, 'A');
-            KBL.move(Tiger, 'A');
-            KBL.move(Cat,'L');
+            KBL.move("Tiger A");
+            KBL.move("Tiger A");
+            KBL.move("Cat L");
 
             assertFalse(Tiger.inTrap());
             assertFalse(Cat.inTrap());
@@ -246,9 +246,9 @@ public class PieceTest {
         GameKBL KBL = new GameKBL(P1, P2, null);
 
         try {
-            KBL.move(Tiger, 'A');
-            KBL.move(Tiger, 'A');
-            KBL.move(Cat, 'L');
+            KBL.move("Tiger A");
+            KBL.move("Tiger A");
+            KBL.move("Cat L");
 
             assertFalse(Tiger.inDen());
             assertFalse(Cat.inDen());
@@ -281,8 +281,9 @@ public class PieceTest {
             assertFalse(Elephant.inRiver());
             assertFalse(Rat.inRiver());
 
-            KBL.move(Rat, 'L');
-            KBL.move(Elephant, 'R');
+            KBL.move("Tiger A");
+            KBL.move("Tiger A");
+            KBL.move("Cat L");
 
             assertFalse(Rat.inRiver());
             assertFalse(Elephant.inRiver());
