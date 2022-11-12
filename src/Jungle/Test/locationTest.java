@@ -144,7 +144,4 @@ public class locationTest {
       assertTrue(6 >= River2.getCol());
 
     }
-
-
-
 }

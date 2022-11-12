@@ -65,7 +65,7 @@ public class GameKBL extends KeyboardListener{
      */
 
 
-    public void move(Piece piece, char d)
+    public void move(String command)
     {
         
     }

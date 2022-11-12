@@ -1,8 +1,15 @@
 package Jungle.Controller;
 
 
+import java.util.Scanner;
+
 public class GlobalController {
 
+    public static void main(String[] args)
+    {
+        GlobalController globalController = new GlobalController();
+        globalController.startGlobalController();
+    }
 
     public KeyboardListener ManualListener = new ManualKBL();
 
@@ -20,7 +27,34 @@ public class GlobalController {
      */
     public void startGlobalController()
     {
+        String input = "";
+        Scanner scan = new Scanner(System.in);
+        WelcomeKBL welcomeKBL = new WelcomeKBL();
+        boolean Lock = true;
+        onWelcome();
+        while(Lock) {
+            input = scan.nextLine();
+            while(welcomeKBL.check(input))
+            {
+                input = scan.nextLine();
+            }
+            switch (input){
+                case "Manual":
+                    onManual();
+                    break;
+                case "Game":
+                    onGame();
+                    break;
+                case "Quit":
+                    onQuit();
+                    break;
+                default:
+                    onQuit();
+            }
 
+            Lock = false;
+        }
+        scan.close();
     }
 
     /**
@@ -30,7 +64,7 @@ public class GlobalController {
      */
     public void onWelcome()
     {
-
+        System.out.println("Welcome!");
     }
 
     /**
@@ -42,6 +76,7 @@ public class GlobalController {
     public void onManual()
     {
         //show manual
+        System.out.println("Manual!");
     }
 
     /**
@@ -54,6 +89,9 @@ public class GlobalController {
     public void onGame()
     {
         //start game
+        System.out.println("Game!");
+        GameController gameController = new GameController();
+        gameController.startGameController();
     }
 
     /**
@@ -63,6 +101,7 @@ public class GlobalController {
     public void onQuit()
     {
         //quit the game
+        System.out.println("Quit!");
     }
 
 }

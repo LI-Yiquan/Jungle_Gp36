@@ -1,8 +1,11 @@
 package Jungle;
 
+import Jungle.Controller.GlobalController;
+
 public class Main {
 
     public static void main(String[] args) {
-	    System.out.println("We are group 36!");
+        GlobalController GC = new GlobalController();
+        GC.startGlobalController();
     }
 }
