@@ -29,10 +29,15 @@ public class GlobalController {
     {
         String input = "";
         Scanner scan = new Scanner(System.in);
+        WelcomeKBL welcomeKBL = new WelcomeKBL();
         boolean Lock = true;
         onWelcome();
         while(Lock) {
             input = scan.nextLine();
+            while(welcomeKBL.check(input))
+            {
+                input = scan.nextLine();
+            }
             switch (input){
                 case "Manual":
                     onManual();
