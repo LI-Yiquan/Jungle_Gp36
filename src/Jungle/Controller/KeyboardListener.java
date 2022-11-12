@@ -4,16 +4,6 @@ import java.util.Scanner;
 
 abstract public class KeyboardListener {
 
-    public Scanner scan;
-
-
-
-    public KeyboardListener()
-    {
-        scan = new Scanner(System.in);
-
-    }
-
     /**
      * When “read” function is called, it will read the next
      * line in the console. This function will also be inherited

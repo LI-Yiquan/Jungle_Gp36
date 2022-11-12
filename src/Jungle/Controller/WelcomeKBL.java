@@ -9,7 +9,8 @@ public class WelcomeKBL extends KeyboardListener{
     public boolean check(String sentence)
     {
         //check format
-        return true;
+
+        return false;
     }
 
 
