@@ -19,7 +19,6 @@ public class Piece implements Comparable<Piece> {
 
 
 
-
 	//Add a constructor
 	public Piece(int row, int col, PieceType type, int rank, GroupType groupType){
 		setRow(row);

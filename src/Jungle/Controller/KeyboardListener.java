@@ -2,7 +2,7 @@ package Jungle.Controller;
 
 import java.util.Scanner;
 
-public class KeyboardListener {
+abstract public class KeyboardListener {
 
     public Scanner scan;
 
@@ -22,7 +22,6 @@ public class KeyboardListener {
      */
     public void read()
     {
-
     }
 
     /**

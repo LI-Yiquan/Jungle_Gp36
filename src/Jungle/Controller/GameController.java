@@ -1,7 +1,9 @@
 package Jungle.Controller;
 
-import Jungle.Model.Board;
-import Jungle.Model.Player;
+import Jungle.Model.*;
+
+
+import java.util.Scanner;
 
 
 public class GameController {
@@ -9,9 +11,9 @@ public class GameController {
     public Player P1;
     public Player P2;
 
-    public Board GameBoard;
+    public Board board;
 
-    public KeyboardListener GameListener = new GameKBL(P1, P2, GameBoard);
+    public GameKBL gameKBL;
 
 
     /**
@@ -22,7 +24,27 @@ public class GameController {
      */
     public void startGameController()
     {
+        P1 = new Player("Alice",GroupType.RED);
+        P2 = new Player("Benjen",GroupType.BLUE);
+        board = new Board();
+        gameKBL = new GameKBL(P1,P2,board);
+        Scanner scan = new Scanner(System.in);
+        String input = "";
+        boolean LOCK = true;
+        while(LOCK)
+        {
+            input = scan.nextLine();
+            scan.close();
+            while(!gameKBL.check(input))
+            {
+                scan = new Scanner(System.in);
+                input = scan.nextLine();
 
+                scan.close();
+            }
+            gameKBL.move(input);
+            if(checkEnd()) LOCK = false;
+        }
     }
 
     /**
@@ -32,8 +54,8 @@ public class GameController {
      * @return end status
      *
      */
-    public int checkEnd()
+    public boolean checkEnd()
     {
-        return 0;
+        return true;
     }
 }
