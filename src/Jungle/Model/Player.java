@@ -4,7 +4,10 @@ public class Player {
 
 	private String name;
 	private GroupType groupType;
-	
+
+	public Piece[] pieces;
+
+	public int PieceNum = 0;
 
 	public Player(String name, GroupType groupType)
 	{
@@ -37,6 +40,7 @@ public class Player {
 	private void setGroup(GroupType groupType) {
 		this.groupType = groupType;
 	}
+
 
 }
 

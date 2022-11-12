@@ -1,8 +1,21 @@
 package Jungle.Controller;
 
 
+import java.awt.event.KeyEvent;
+import java.util.Scanner;
+
 public class ManualKBL extends KeyboardListener{
 
+    public void listen()
+    {
+        String input;
+        Scanner scan = new Scanner(System.in);
+        input = scan.nextLine();
+        while(!check(input))
+        {
+            input = scan.nextLine();
+        }
+    }
     /**
      * This method will override the method in KeyBoardListener class,
      * and it will be modified to help check whether the user correctly
@@ -28,4 +41,5 @@ public class ManualKBL extends KeyboardListener{
     {
         return 0;
     }
+
 }

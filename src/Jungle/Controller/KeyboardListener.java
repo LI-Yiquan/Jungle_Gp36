@@ -1,18 +1,8 @@
 package Jungle.Controller;
 
-import java.util.Scanner;
+import java.awt.event.KeyListener;
 
-abstract public class KeyboardListener {
-
-    /**
-     * When “read” function is called, it will read the next
-     * line in the console. This function will also be inherited
-     * by ManualKBL and GameKBL.
-     *
-     */
-    public void read()
-    {
-    }
+abstract public class KeyboardListener{
 
     /**
      * check whether the format of user input is valid or invalid

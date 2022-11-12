@@ -27,23 +27,19 @@ public class GlobalController {
      */
     public void startGlobalController()
     {
-        String input = "";
-        Scanner scan = new Scanner(System.in);
+        int MODE;
+        //Scanner scan = new Scanner(System.in);
         WelcomeKBL welcomeKBL = new WelcomeKBL();
         onWelcome();
-        input = scan.nextLine();
-        while(welcomeKBL.check(input))
-        {
-            input = scan.nextLine();
-        }
-        switch(input){
-            case "Manual":
+        MODE = welcomeKBL.listen();
+        switch(MODE){
+            case 1:
                 onManual();
                 break;
-            case "Game":
+            case 2:
                 onGame();
                 break;
-            case "Quit":
+            case 3:
                 onQuit();
                 break;
             default:
@@ -51,7 +47,7 @@ public class GlobalController {
         }
 
 
-        scan.close();
+        //scan.close();
     }
 
     /**

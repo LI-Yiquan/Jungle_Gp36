@@ -28,21 +28,26 @@ public class GameController {
         P2 = new Player("Benjen",GroupType.BLUE);
         board = new Board();
         gameKBL = new GameKBL(P1,P2,board);
-        Scanner scan = new Scanner(System.in);
-        String input = "";
+        int turn = 0;
         boolean LOCK = true;
         while(LOCK)
         {
-            input = scan.nextLine();
-            while(!gameKBL.check(input))
+            if(turn==0) gameKBL.listen(P1);
+            else gameKBL.listen(P2);
+            turn = 1 - turn;
+            if(checkEnd().equals("P1"))
             {
-                scan = new Scanner(System.in);
-                input = scan.nextLine();
+                System.out.println("P1 wins the game!");
+                LOCK = false;
             }
-            gameKBL.move(input);
-            if(checkEnd()) LOCK = false;
+            else if(checkEnd().equals("P2"))
+            {
+                System.out.println("P2 wins the game!");
+                LOCK = false;
+            }
+
         }
-        scan.close();
+
     }
 
     /**
@@ -52,8 +57,15 @@ public class GameController {
      * @return end status
      *
      */
-    public boolean checkEnd()
+    public String checkEnd()
     {
-        return true;
+        if(P1.PieceNum == 0)  return "P2";
+        if(P2.PieceNum == 0)  return "P1";
+        for(int i=0;i<8;i++)
+        {
+            if(P1.pieces[i].inDen) return "P1";
+            if(P2.pieces[i].inDen) return "P2";
+        }
+        return "continue";
     }
 }

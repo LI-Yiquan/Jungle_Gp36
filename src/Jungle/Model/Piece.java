@@ -17,7 +17,13 @@ public class Piece implements Comparable<Piece> {
 	
 	private GroupType groupType; //choose whether it is BLUE or RED
 
+	public boolean alive;
 
+	public boolean inDen;
+
+	public boolean inTrap;
+
+	public boolean inRiver;
 
 	//Add a constructor
 	public Piece(int row, int col, PieceType type, int rank, GroupType groupType){
@@ -26,6 +32,7 @@ public class Piece implements Comparable<Piece> {
 		setRank(rank);
 		setGroup(groupType);
 		setPieceType(type);
+		this.alive=true;
 
 	}
 
@@ -114,25 +121,10 @@ public class Piece implements Comparable<Piece> {
 	}
 
 
-	public boolean inTrap()
+	public void remove()
 	{
-		return false;
+		this.alive=false;
 	}
-
-
-
-	public boolean inRiver()
-	{
-		return false;
-	}
-
-
-
-	public boolean inDen()
-	{
-		return false;
-	}
-    
 	// Add a new method
 	@Override
 	public int compareTo(Piece piece){
