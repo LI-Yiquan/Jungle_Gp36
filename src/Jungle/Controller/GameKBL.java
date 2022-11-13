@@ -25,10 +25,12 @@ public class GameKBL extends KeyboardListener{
     {
         String input;
         Scanner scan = new Scanner(System.in);
+        System.out.print("Game====>");
         input = scan.nextLine();
         while(!check(input,player))
         {
             System.out.println("Wrong command, please try again.");
+            System.out.print("Game====>");
             input = scan.nextLine();
         }
         move(input,player);

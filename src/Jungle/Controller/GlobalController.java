@@ -28,7 +28,6 @@ public class GlobalController {
     public void startGlobalController()
     {
         int MODE;
-        //Scanner scan = new Scanner(System.in);
         WelcomeKBL welcomeKBL = new WelcomeKBL();
         onWelcome();
         MODE = welcomeKBL.listen();
@@ -70,6 +69,10 @@ public class GlobalController {
     {
         //show manual
         System.out.println("Manual!");
+        ManualKBL manualKBL = new ManualKBL();
+        manualKBL.listen();
+
+
     }
 
     /**
