@@ -13,6 +13,7 @@ public class Player {
 	{
 		setName(name);
 		setGroup(groupType);
+		//TODO: Please initiate Pieces[] for the Player.
 	}
 
 

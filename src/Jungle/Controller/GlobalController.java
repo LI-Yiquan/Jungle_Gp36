@@ -71,8 +71,6 @@ public class GlobalController {
         System.out.println("Manual!");
         ManualKBL manualKBL = new ManualKBL();
         manualKBL.listen();
-
-
     }
 
     /**

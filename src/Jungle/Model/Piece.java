@@ -129,6 +129,8 @@ public class Piece implements Comparable<Piece> {
 	@Override
 	public int compareTo(Piece piece){
 		//To compare the priority of each piece
+		//TODO: Please complete this compareTo function,
+		// for example: A.compareTo(B) when A can eat B, return a positive value
 		return this.getRank()-piece.getRank();
 	}
 	

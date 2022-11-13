@@ -46,6 +46,7 @@ public class GameKBL extends KeyboardListener{
      */
     public boolean check(String command,Player player)
     {
+        //TODO: check move rat,tiger in river
         String[] tmp;
         Piece piece;
         tmp = command.split(" ");
@@ -213,10 +214,11 @@ public class GameKBL extends KeyboardListener{
                     player2.PieceNum--;
                 }
             }
-
-            if(piece.getRow()==1&&piece.getCol()==1) piece.inDen=true;
-            else if(piece.getRow()==2&&piece.getCol()==2) piece.inTrap=true;
-            else if(piece.getRow()==3&&piece.getCol()==3) piece.inRiver=true;
+            if(piece.getRow()==1&&piece.getCol()==4) piece.inDen=true;
+            else if((4<=piece.getRow()||piece.getRow()<=6)&&
+                    (piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||piece.getCol()==6)) piece.inRiver=true;
+            else if((piece.getRow()==1&&piece.getCol()==3)||
+                    (piece.getRow()==2&&piece.getCol()==4)||(piece.getRow()==1&&piece.getCol()==5)) piece.inTrap=true;
             else{
                 piece.inDen=false;
                 piece.inTrap=false;
@@ -234,16 +236,18 @@ public class GameKBL extends KeyboardListener{
                     player1.PieceNum--;
                 }
             }
-
-            if(piece.getRow()==1&&piece.getCol()==1) piece.inDen=true;
-            else if(piece.getRow()==2&&piece.getCol()==2) piece.inTrap=true;
-            else if(piece.getRow()==3&&piece.getCol()==3) piece.inRiver=true;
+            if(piece.getRow()==9&&piece.getCol()==4) piece.inDen=true;
+            else if((4<=piece.getRow()||piece.getRow()<=6)&&
+                    (piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||piece.getCol()==6)) piece.inRiver=true;
+            else if((piece.getRow()==9&&piece.getCol()==3)||
+                    (piece.getRow()==8&&piece.getCol()==4)||(piece.getRow()==9&&piece.getCol()==5)) piece.inTrap=true;
             else{
                 piece.inDen=false;
                 piece.inTrap=false;
                 piece.inRiver=false;
             }
         }
+
     }
 
 }
