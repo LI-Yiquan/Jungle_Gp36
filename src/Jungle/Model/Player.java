@@ -1,15 +1,19 @@
-package Model;
+package Jungle.Model;
 
 public class Player {
 
 	private String name;
 	private GroupType groupType;
-	
+
+	public Piece[] pieces;
+
+	public int PieceNum = 0;
 
 	public Player(String name, GroupType groupType)
 	{
 		setName(name);
 		setGroup(groupType);
+		//TODO: Please initiate Pieces[] for the Player.
 	}
 
 
@@ -38,6 +42,5 @@ public class Player {
 		this.groupType = groupType;
 	}
 
-}
 
-	
+}

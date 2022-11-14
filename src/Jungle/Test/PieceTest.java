@@ -215,16 +215,10 @@ public class PieceTest {
         Player P2 = new Player("Bob",GroupType.BLUE);
         Piece Cat= new Piece(1,1, PieceType.Cat,3, GroupType.RED);
         Piece Tiger= new Piece(2,2,PieceType.Tiger, 5, GroupType.RED);
-        GameKBL KBL= new GameKBL(P1, P2, null);
+        GameKBL KBL= new GameKBL(P1, P2,null);
 
         try{
             //Move Tiger and cat into the same trap and check the outcome
-            KBL.move(Tiger, 'A');
-            KBL.move(Tiger, 'A');
-            KBL.move(Cat,'L');
-
-            assertFalse(Tiger.inTrap());
-            assertFalse(Cat.inTrap());
 
         }
         catch (Exception e){
@@ -243,15 +237,10 @@ public class PieceTest {
         Player P2 = new Player("Bob", GroupType.BLUE);
         Piece Cat = new Piece(1, 1, PieceType.Cat, 3, GroupType.RED);
         Piece Tiger = new Piece(2, 2, PieceType.Tiger, 5, GroupType.RED);
-        GameKBL KBL = new GameKBL(P1, P2, null);
+        GameKBL KBL = new GameKBL(P1,P2, null);
 
         try {
-            KBL.move(Tiger, 'A');
-            KBL.move(Tiger, 'A');
-            KBL.move(Cat, 'L');
 
-            assertFalse(Tiger.inDen());
-            assertFalse(Cat.inDen());
 
         } catch (Exception e) {
             assertEquals("Have no permission to eat the animal in trap!", e.getMessage());
@@ -270,22 +259,13 @@ public class PieceTest {
         Location RiverLocation = new Location(LocationType.RIVER, GroupType.RED, 4, 2);
         Piece Rat = new Piece(3, 2, PieceType.Rat, 0, GroupType.RED);
         Piece Elephant = new Piece(4, 1, PieceType.Elephant, 7, GroupType.BLUE);
-        GameKBL KBL = new GameKBL(P1, P2, null);
+        GameKBL KBL = new GameKBL(P1, P2,null);
         Piece Wolf = new Piece(4, 2, PieceType.Wolf, 3, GroupType.RED);
 
         try {
             //Test the location of River
             assertSame(RiverLocation.getLocationType(), LocationType.RIVER);
             assertNotSame(RiverLocation.getLocationType(), LocationType.TRAP);
-            assertFalse(Wolf.inRiver());
-            assertFalse(Elephant.inRiver());
-            assertFalse(Rat.inRiver());
-
-            KBL.move(Rat, 'L');
-            KBL.move(Elephant, 'R');
-
-            assertFalse(Rat.inRiver());
-            assertFalse(Elephant.inRiver());
 
         } catch (Exception e) {
             assertEquals("The animal is not in River/cannot Have no permission to eat the animal in River!", e.getMessage());

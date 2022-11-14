@@ -1,4 +1,4 @@
-package Model;
+package Jungle.Model;
 
 
 
@@ -17,6 +17,14 @@ public class Piece implements Comparable<Piece> {
 	
 	private GroupType groupType; //choose whether it is BLUE or RED
 
+	public boolean alive;
+
+	public boolean inDen;
+
+	public boolean inTrap;
+
+	public boolean inRiver;
+
 	//Add a constructor
 	public Piece(int row, int col, PieceType type, int rank, GroupType groupType){
 		setRow(row);
@@ -24,8 +32,12 @@ public class Piece implements Comparable<Piece> {
 		setRank(rank);
 		setGroup(groupType);
 		setPieceType(type);
+		this.alive=true;
 
 	}
+
+
+
 
 
 	//remove argument string
@@ -33,18 +45,36 @@ public class Piece implements Comparable<Piece> {
 		return row;
 	}
 
+
+
+
+
+
 	public void setRow(int row) {
         this.row = row;
 	}
+
+
+
+
 
 	//remove argument string
 	public int getCol() {
 		return col;
 	}
 
+
+
+
+
+
 	public void setCol(int col) {
 		this.col = col;
 	}
+
+
+
+
 
 
 	//remove argument char name
@@ -52,6 +82,11 @@ public class Piece implements Comparable<Piece> {
 		return groupType;
 	}
     
+
+
+
+
+
 
 	public void setGroup(GroupType group) {
          this.groupType=group;
@@ -114,12 +149,19 @@ public class Piece implements Comparable<Piece> {
 
 		return false;
 	}
-    
+
+	public void remove()
+	{
+		this.alive=false;
+	}
 	// Add a new method
 	@Override
 	public int compareTo(Piece piece){
 		//To compare the priority of each piece
-		if(this.getRank()==8 &&piece.getRank()==1) {
+		//TODO: Please complete this compareTo function,
+		// for example: A.compareTo(B) when A can eat B, return a positive value
+    
+    if(this.getRank()==8 &&piece.getRank()==1) {
 			return -7;
 		}else if(this.getRank()==1 &&piece.getRank()==8){
 			return 7;
