@@ -1,4 +1,4 @@
-package Jungle.Model;
+package Model;
 
 
 
@@ -17,9 +17,6 @@ public class Piece implements Comparable<Piece> {
 	
 	private GroupType groupType; //choose whether it is BLUE or RED
 
-
-
-
 	//Add a constructor
 	public Piece(int row, int col, PieceType type, int rank, GroupType groupType){
 		setRow(row);
@@ -31,44 +28,23 @@ public class Piece implements Comparable<Piece> {
 	}
 
 
-
-
-
 	//remove argument string
 	public int getRow() {
 		return row;
 	}
 
-
-
-
-
-
 	public void setRow(int row) {
         this.row = row;
 	}
-
-
-
-
 
 	//remove argument string
 	public int getCol() {
 		return col;
 	}
 
-
-
-
-
-
 	public void setCol(int col) {
 		this.col = col;
 	}
-
-
-
-
 
 
 	//remove argument char name
@@ -76,11 +52,6 @@ public class Piece implements Comparable<Piece> {
 		return groupType;
 	}
     
-
-
-
-
-
 
 	public void setGroup(GroupType group) {
          this.groupType=group;
@@ -114,23 +85,33 @@ public class Piece implements Comparable<Piece> {
         this.type = type;
 	}
 
-
-	public boolean inTrap()
-	{
+	public boolean inTrap(Board board) {
+		if(board.board[row][col].getLocationType()==LocationType.TRAP){
+			return true;
+		}
 		return false;
 	}
 
 
 
-	public boolean inRiver()
+	public boolean inRiver(Board board)
 	{
+
+		if(board.board[row][col].getLocationType()==LocationType.RIVER){
+			return true;
+		}
+
 		return false;
 	}
 
 
 
-	public boolean inDen()
+	public boolean inDen(Board board)
 	{
+		if(board.board[row][col].getLocationType()==LocationType.DEN){
+			return true;
+		}
+
 		return false;
 	}
     
@@ -138,6 +119,11 @@ public class Piece implements Comparable<Piece> {
 	@Override
 	public int compareTo(Piece piece){
 		//To compare the priority of each piece
+		if(this.getRank()==8 &&piece.getRank()==1) {
+			return -7;
+		}else if(this.getRank()==1 &&piece.getRank()==8){
+			return 7;
+		}
 		return this.getRank()-piece.getRank();
 	}
 	

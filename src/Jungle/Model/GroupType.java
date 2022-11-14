@@ -1,4 +1,4 @@
-package Jungle.Model;
+package Model;
 
 /**
  * Group Type
