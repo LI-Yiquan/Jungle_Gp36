@@ -1,6 +1,5 @@
 package Jungle.View;
-import Jungle.Model.Board;
-import Jungle.Model.Player;
+import Jungle.Model.*;
 
 
 
@@ -13,11 +12,12 @@ public class Map implements Page{
     private String inputRequirement;
     /** the Game Rule page for the game board */
     private GameRule ruleInMap;
-
+    /** the Game Player*/
+    private Player P1,P2;
     
     /** Initialize the game board */
     public Map(Board _board){
-//print map
+
     }
 
     /**
@@ -25,7 +25,7 @@ public class Map implements Page{
      * @param gameBoard
      */
     public void setGameBoard(Board gameBoard) {
-       
+
     }
     
     /**
@@ -41,7 +41,7 @@ public class Map implements Page{
      * @param gameInfo
      */
     public void setGameInfo(String gameInfo) {
-       
+
     }
     
     /**
@@ -93,14 +93,225 @@ public class Map implements Page{
      * Print the chessboard
      */
     public void printBoard(){
-
+        int r = 1;
+        int c = 1;
+        for(int i= 0; i< 19; i++) {
+            if (i % 2 == 0)
+            {
+                for (int j = 0; j < 15; j++) {
+                    if (j % 2 == 0) {System.out.print("|");}
+                    else {System.out.print("————");}
+                }
+            }
+            else{
+                for (int j = 0; j < 15; j++) {
+                    if (j % 2 == 0) {
+                        System.out.print('|');
+                    }
+                    else {
+                        switch(getGameBoard().board[r][c].l_type){
+                            case LAND:
+                                for(int p = 0; p<7;p++){
+                                    //Red color for Player 1
+                                    if(P1.pieces[p].getCol()==c && P1.pieces[p].getRow()==r){
+                                        switch(Pieces[p].getPieceType()){
+                                            case Rat:
+                                                System.out.print("\033[31;4m 鼠  \033[0m");
+                                                break;
+                                            case Elephant:
+                                                System.out.print("\033[31;4m 象  \033[0m");
+                                                break;
+                                            case Cat:
+                                                System.out.print("\033[31;4m 猫  \033[0m");
+                                                break;
+                                            case Dog:
+                                                System.out.print("\033[31;4m 狗  \033[0m");
+                                                break;
+                                            case Lion:
+                                                System.out.print("\033[31;4m 狮  \033[0m");
+                                                break;
+                                            case Wolf:
+                                                System.out.print("\033[31;4m 狼  \033[0m");
+                                                break;
+                                            case Tiger:
+                                                System.out.print("\033[31;4m 虎  \033[0m");
+                                                break;
+                                        }
+                                    }
+                                    //Blue color for Player 2
+                                    if(P2.pieces[p].getCol()==c && P2.pieces[p].getRow()==r){
+                                        switch(Pieces[0].getPieceType()){
+                                            case Rat:
+                                                System.out.print("\033[34;4m 鼠  \033[0m");
+                                                break;
+                                            case Elephant:
+                                                System.out.print("\033[34;4m 象  \033[0m");
+                                                break;
+                                            case Cat:
+                                                System.out.print("\033[34;4m 猫  \033[0m");
+                                                break;
+                                            case Dog:
+                                                System.out.print("\033[34;4m 狗  \033[0m");
+                                                break;
+                                            case Lion:
+                                                System.out.print("\033[34;4m 狮  \033[0m");
+                                                break;
+                                            case Wolf:
+                                                System.out.print("\033[34;4m 狼  \033[0m");
+                                                break;
+                                            case Tiger:
+                                                System.out.print("\033[34;4m 虎  \033[0m");
+                                                break;
+                                        }
+                                    }
+                                }
+                                System.out.print("    ");
+                                break;
+                            case TRAP:
+                                for(int p=0;p<7;p++){
+                                    if(P1.pieces[p].getCol()==c && P1.pieces[p].getRow()==r){
+                                        switch(Pieces[p].getPieceType()){
+                                            case Rat:
+                                                System.out.print("\033[31;4mX鼠 X\033[0m");
+                                                break;
+                                            case Elephant:
+                                                System.out.print("\033[31;4mX象 X\033[0m");
+                                                break;
+                                            case Cat:
+                                                System.out.print("\033[31;4mX猫 X\033[0m");
+                                                break;
+                                            case Dog:
+                                                System.out.print("\033[31;4mX狗 X\033[0m");
+                                                break;
+                                            case Lion:
+                                                System.out.print("\033[31;4mX狮 X\033[0m");
+                                                break;
+                                            case Wolf:
+                                                System.out.print("\033[31;4mX狼 X\033[0m");
+                                                break;
+                                            case Tiger:
+                                                System.out.print("\033[31;4mX虎 X\033[0m");
+                                                break;
+                                        }
+                                    }
+                                    if(P2.pieces[p].getCol()==c && P2.pieces[p].getRow()==r){
+                                        switch(Pieces[p].getPieceType()){
+                                            case Rat:
+                                                System.out.print("\033[34;4mX鼠 X\033[0m");
+                                                break;
+                                            case Elephant:
+                                                System.out.print("\033[34;4mX象 X\033[0m");
+                                                break;
+                                            case Cat:
+                                                System.out.print("\033[34;4mX猫 X\033[0m");
+                                                break;
+                                            case Dog:
+                                                System.out.print("\033[34;4mX狗 X\033[0m");
+                                                break;
+                                            case Lion:
+                                                System.out.print("\033[34;4mX狮 X\033[0m");
+                                                break;
+                                            case Wolf:
+                                                System.out.print("\033[34;4mX狼 X\033[0m");
+                                                break;
+                                            case Tiger:
+                                                System.out.print("\033[34;4mX虎 X\033[0m");
+                                                break;
+                                        }
+                                    }
+                                }
+                                System.out.print("XXXX");
+                                break;
+                            case RIVER:
+                                for(int p=0;p<7;p++){
+                                    if(P1.pieces[p].getCol()==c && P1.pieces[p].getRow()==r){
+                                        switch(Pieces[p].getPieceType()){
+                                            case Rat:
+                                                System.out.print("\033[31;4m~鼠 ~\033[0m");
+                                                break;
+                                            case Elephant:
+                                                System.out.print("\033[31;4m~象 ~\033[0m");
+                                                break;
+                                            case Cat:
+                                                System.out.print("\033[31;4m~猫 ~\033[0m");
+                                                break;
+                                            case Dog:
+                                                System.out.print("\033[31;4m~狗 ~\033[0m");
+                                                break;
+                                            case Lion:
+                                                System.out.print("\033[31;4m~狮 ~\033[0m");
+                                                break;
+                                            case Wolf:
+                                                System.out.print("\033[31;4m~狼 ~\033[0m");
+                                                break;
+                                            case Tiger:
+                                                System.out.print("\033[31;4m~虎 ~\033[0m");
+                                                break;
+                                        }
+                                    }
+                                    if(P2.pieces[p].getCol()==c && P2.pieces[p].getRow()==r){
+                                        switch(Pieces[p].getPieceType()){
+                                            case Rat:
+                                                System.out.print("\033[34;4m~鼠 ~\033[0m");
+                                                break;
+                                            case Elephant:
+                                                System.out.print("\033[34;4m~象 ~\033[0m");
+                                                break;
+                                            case Cat:
+                                                System.out.print("\033[34;4m~猫 ~\033[0m");
+                                                break;
+                                            case Dog:
+                                                System.out.print("\033[34;4m~狗 ~\033[0m");
+                                                break;
+                                            case Lion:
+                                                System.out.print("\033[34;4m~狮 ~\033[0m");
+                                                break;
+                                            case Wolf:
+                                                System.out.print("\033[34;4m~狼 ~\033[0m");
+                                                break;
+                                            case Tiger:
+                                                System.out.print("\033[34;4m~虎 ~\033[0m");
+                                                break;
+                                        }
+                                    }
+                                }
+                                System.out.print("~~~~");
+                                break;
+                            case DEN:
+                                for(int p=0;p<7;p++){
+                                    if(P1.pieces[p].getCol()==c && P1.pieces[p].getRow()==r){
+                                        switch(Pieces[p].getPieceType()){
+                                            case Rat:
+                                                System.out.print("\033[31;4m*鼠 *\033[0m");
+                                                break;
+                                        }
+                                    }
+                                    if(P2.pieces[p].getCol()==c && P2.pieces[p].getRow()==r){
+                                        switch(Pieces[p].getPieceType()){
+                                            case Rat:
+                                                System.out.print("\033[34;4m*鼠 *\033[0m");
+                                                break;
+                                        }
+                                    }
+                                }
+                                System.out.print("****");
+                                break;
+                        }
+                        c++;
+                    }
+                }
+                r++;
+                c=1;
+            }
+            System.out.println();
+        }
     }
 
     /**
      * Print the game information to user
      */
     public void printGameInfo(){
-        
+        System.out.println()
     }
 
     /**
