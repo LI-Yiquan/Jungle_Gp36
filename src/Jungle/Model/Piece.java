@@ -120,6 +120,35 @@ public class Piece implements Comparable<Piece> {
         this.type = type;
 	}
 
+	public boolean inTrap(Board board) {
+		if(board.board[row][col].getLocationType()==LocationType.TRAP){
+			return true;
+		}
+		return false;
+	}
+
+
+
+	public boolean inRiver(Board board)
+	{
+
+		if(board.board[row][col].getLocationType()==LocationType.RIVER){
+			return true;
+		}
+
+		return false;
+	}
+
+
+
+	public boolean inDen(Board board)
+	{
+		if(board.board[row][col].getLocationType()==LocationType.DEN){
+			return true;
+		}
+
+		return false;
+	}
 
 	public void remove()
 	{
@@ -131,6 +160,12 @@ public class Piece implements Comparable<Piece> {
 		//To compare the priority of each piece
 		//TODO: Please complete this compareTo function,
 		// for example: A.compareTo(B) when A can eat B, return a positive value
+    
+    if(this.getRank()==8 &&piece.getRank()==1) {
+			return -7;
+		}else if(this.getRank()==1 &&piece.getRank()==8){
+			return 7;
+		}
 		return this.getRank()-piece.getRank();
 	}
 	

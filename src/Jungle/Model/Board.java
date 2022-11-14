@@ -1,4 +1,4 @@
-package Jungle.Model;
+package Model;
 /*
 In this model part, some components which are significant are listed as follows,
 like the class of Piece(animals),the class of location, 
@@ -17,6 +17,9 @@ public class Board {
 
 	public Location[][] board; // the elements in board can be TRAP,DEN,RIVER,LAND. LAND means this position is blank.
 
+	public Piece[][] animals;
+
+
 	public Board()
 	{
 		initBoard();
@@ -30,6 +33,45 @@ public class Board {
 		{
 			board[i] = new Location[8];
 		}
+
+
+		animals = new Piece[10][];
+		for(int i=0;i<10;i++)
+		{
+			animals[i] = new Piece[8];
+		}
+
+
+		animals[1][1] = new Piece(1,1,PieceType.Dog,3,GroupType.RED);
+		animals[1][7] = new Piece(1,7,PieceType.Tiger,6,GroupType.RED);
+		animals[2][2] = new Piece(2,2,PieceType.Dog,3,GroupType.RED);
+		animals[2][6] = new Piece(2,6,PieceType.Cat,2,GroupType.RED);
+		animals[3][1] = new Piece(3,1,PieceType.Rat,1,GroupType.RED);
+		animals[3][3] = new Piece(3,3,PieceType.Leopard,5,GroupType.RED);
+		animals[3][5] = new Piece(3,5,PieceType.Wolf,4,GroupType.RED);
+		animals[3][7] = new Piece(3,7,PieceType.Elephant,7,GroupType.RED);
+
+
+		animals[1][7] = new Piece(1,7,PieceType.Dog,3,GroupType.BLUE);
+		animals[1][1] = new Piece(1,1,PieceType.Tiger,6,GroupType.BLUE);
+
+		animals[8][6] = new Piece(8,6,PieceType.Dog,3,GroupType.BLUE);
+		animals[8][2] = new Piece(8,2,PieceType.Cat,2,GroupType.BLUE);
+
+		animals[7][7] = new Piece(7,7,PieceType.Rat,1,GroupType.BLUE);
+		animals[7][5] = new Piece(7,5,PieceType.Leopard,5,GroupType.BLUE);
+		animals[7][3] = new Piece(7,3,PieceType.Wolf,4,GroupType.BLUE);
+		animals[7][1] = new Piece(7,1,PieceType.Elephant,7,GroupType.BLUE);
+
+		for(int i=1;i<10;i++)
+		{
+			for(int j=1;j<8;j++)
+			{
+				if(animals[i][j]==null) animals[i][j] = new Piece(i,j,PieceType.Other,-1,GroupType.OTHER);
+			}
+		}
+
+
 
 		board[1][3] = new Location(LocationType.TRAP,GroupType.RED,1,3);
 		board[2][4] = new Location(LocationType.TRAP,GroupType.RED,2,4);
@@ -60,6 +102,22 @@ public class Board {
 			}
 		}
 
+
+
+
+
+
+
+
+
+
+
+
+	}
+
+
+	public void setLocation(Location location){
+		board[location.getRow()][location.getCol()] = location;
 	}
 
 
