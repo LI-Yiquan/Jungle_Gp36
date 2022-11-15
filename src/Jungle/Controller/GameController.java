@@ -1,8 +1,10 @@
 package Jungle.Controller;
 
 import Jungle.Model.*;
+import Jungle.View.Map;
 
 
+import java.rmi.MarshalledObject;
 import java.util.Scanner;
 
 
@@ -25,25 +27,29 @@ public class GameController {
     public void startGameController()
     {
         P1 = new Player("Alice",GroupType.RED);
-        P2 = new Player("Benjen",GroupType.BLUE);
+        P2 = new Player("Bob",GroupType.BLUE);
         board = new Board();
         gameKBL = new GameKBL(P1,P2,board);
         int turn = 0;
         boolean LOCK = true;
+        Map map = new Map();
+        map.printBoard(board,P1,P2);
+
         while(LOCK)
         {
             if(turn==0) gameKBL.listen(P1);
             else gameKBL.listen(P2);
+            map.printBoard(board,P1,P2);
             turn = 1 - turn;
-            if(checkEnd().equals("P1"))
-            {
-                System.out.println("P1 wins the game!");
-                LOCK = false;
-            }
-            else if(checkEnd().equals("P2"))
-            {
-                System.out.println("P2 wins the game!");
-                LOCK = false;
+            switch(checkEnd()){
+                case "P1":
+                    System.out.println("P1 wins the game!");
+                    LOCK = false;
+                    break;
+                case "P2":
+                    System.out.println("P2 wins the game!");
+                    LOCK = false;
+                    break;
             }
 
         }
@@ -59,12 +65,13 @@ public class GameController {
      */
     public String checkEnd()
     {
-        if(P1.PieceNum == 0)  return "P2";
+        if(P1.PieceNum == 0) return "P2";
         if(P2.PieceNum == 0)  return "P1";
         for(int i=0;i<8;i++)
         {
             if(P1.pieces[i].inDen) return "P1";
             if(P2.pieces[i].inDen) return "P2";
+
         }
         return "continue";
     }

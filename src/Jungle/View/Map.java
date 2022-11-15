@@ -13,8 +13,8 @@ public class Map implements Page{
         Board gameBoard = new Board();
         Player P1 = new Player("Alice", GroupType.RED);
         Player P2 = new Player("Bob",GroupType.BLUE);
-        Map map = new Map(gameBoard, P1, P2);
-        map.printBoard();
+        Map map = new Map();
+        map.printBoard(gameBoard, P1, P2);
     }
     /** current game board */
     private Board gameBoard;
@@ -26,14 +26,6 @@ public class Map implements Page{
     private GameRule ruleInMap;
 
     private Player P1,P2;
-
-    /** Initialize the game board */
-    public Map(Board gameBoard, Player P1, Player P2){
-        this.gameBoard=gameBoard;
-        this.P1 = P1;
-        this.P2 = P2;
-    }
-
     /**
      * Set the game board
      * @param gameBoard
@@ -112,8 +104,11 @@ public class Map implements Page{
     /**
      * Print the chessboard
      */
-    public void printBoard(){
-        int lock = 0,mr;
+    public void printBoard(Board gameBoard, Player P1, Player P2){
+        this.gameBoard=gameBoard;
+        this.P1 = P1;
+        this.P2 = P2;
+        int lock = 0;
         int r = 1;
         int c = 1;
         for(int i= 0; i< 19; i++) {

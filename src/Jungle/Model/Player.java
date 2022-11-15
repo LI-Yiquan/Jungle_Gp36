@@ -23,6 +23,7 @@ public class Player {
 				this.initP2();
 				break;
 		}
+		PieceNum = 8;
 
 	}
 
