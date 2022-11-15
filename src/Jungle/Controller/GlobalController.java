@@ -1,6 +1,8 @@
 package Jungle.Controller;
 
 
+import Jungle.View.GameRule;
+
 import java.util.Scanner;
 
 public class GlobalController {
@@ -69,6 +71,8 @@ public class GlobalController {
     {
         //show manual
         System.out.println("Manual!");
+        GameRule a=new GameRule();
+        a.printRule();
         ManualKBL manualKBL = new ManualKBL();
         manualKBL.listen();
     }
