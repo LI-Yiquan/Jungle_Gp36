@@ -41,7 +41,9 @@ public class Map implements Page{
      * @param gameInfo
      */
     public void setGameInfo(String gameInfo) {
-
+        String p1_info = P1.getName()+" has "+Integer.toString(P1.PieceNum)+"pieces now.\n";
+        String p2_info = P2.getName()+" has "+Integer.toString(P2.PieceNum)+"pieces now.\n";
+        gameInfo = p1_info+p2_info;
     }
     
     /**
@@ -62,7 +64,10 @@ public class Map implements Page{
      * @param inputRequirement
      */
     public void setInputRequirement(String inputRequirement) {
-        
+        inputRequirement ="Please input the piece name you want to move and the movement\n"+
+                "The movement is consist 4 directions and 2 actions\n"+
+                "Directions: [Up: u,  Down: d, Left: l, Right:r]; Actions:[jump, walk]"+
+                "The input format should be [Piece,Direction,Action], eg(Lion,l,jump)";
     }
     
     /**
