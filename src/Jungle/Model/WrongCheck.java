@@ -1,4 +1,4 @@
-package Model;
+package Jungle.Model;
 
 /*
 In this model part, some components which are significant are listed as follows,

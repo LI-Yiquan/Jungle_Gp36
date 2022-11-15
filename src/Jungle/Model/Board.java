@@ -1,4 +1,5 @@
-package Model;
+package Jungle.Model;
+
 /*
 In this model part, some components which are significant are listed as follows,
 like the class of Piece(animals),the class of location, 
@@ -42,7 +43,7 @@ public class Board {
 		}
 
 
-		animals[1][1] = new Piece(1,1,PieceType.Dog,3,GroupType.RED);
+		animals[1][1] = new Piece(1,1,PieceType.Dog,3, GroupType.RED);
 		animals[1][7] = new Piece(1,7,PieceType.Tiger,6,GroupType.RED);
 		animals[2][2] = new Piece(2,2,PieceType.Dog,3,GroupType.RED);
 		animals[2][6] = new Piece(2,6,PieceType.Cat,2,GroupType.RED);
@@ -82,7 +83,7 @@ public class Board {
 
 		board[1][4] = new Location(LocationType.DEN,GroupType.RED,1,4);
 		board[9][4] = new Location(LocationType.DEN,GroupType.BLUE,9,4);
-		for(int i=1;i<7;i++)
+		for(int i=4;i<7;i++)
 		{
 			for(int j=2;j<4;j++)
 			{

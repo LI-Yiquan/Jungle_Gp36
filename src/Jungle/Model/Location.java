@@ -1,7 +1,7 @@
-package Model;
+package Jungle.Model;
 
 
-
+import Jungle.Model.GroupType;
 
 /*
 In this model part, some components which are significant are listed as follows,
