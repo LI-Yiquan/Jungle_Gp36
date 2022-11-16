@@ -190,16 +190,16 @@ public class GameKBL extends KeyboardListener{
                 piece = player.pieces[0];
         }
         switch (tmp[1]) {
-            case "h":
+            case "a":
                 piece.setCol(piece.getCol() - 1);
                 break;
-            case "j":
+            case "s":
                 piece.setRow(piece.getRow() - 1);
                 break;
-            case "k":
+            case "w":
                 piece.setRow(piece.getRow() + 1);
                 break;
-            case "l":
+            case "d":
                 piece.setCol(piece.getCol() + 1);
                 break;
         }
