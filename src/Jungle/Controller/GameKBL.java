@@ -88,25 +88,25 @@ public class GameKBL extends KeyboardListener{
         }
         int row,col;
         switch (tmp[1]) {
-            case "h":
+            case "a":
                 if((piece.getCol() - 1)<1) return false;
                 row=piece.getRow();
                 col=piece.getCol()-1;
                 if(checkConflict(row,col,player)) return false;
                 break;
-            case "j":
+            case "s":
                 if((piece.getRow() - 1)<1) return false;
                 row=piece.getRow()-1;
                 col=piece.getCol();
                 if(checkConflict(row,col,player)) return false;
                 break;
-            case "k":
+            case "w":
                 if((piece.getRow() + 1)>9) return false;
                 row=piece.getRow()+1;
                 col=piece.getCol();
                 if(checkConflict(row,col,player)) return false;
                 break;
-            case "l":
+            case "d":
                 if((piece.getCol() + 1)>7) return false;
                 row=piece.getRow();
                 col=piece.getCol()+1;
