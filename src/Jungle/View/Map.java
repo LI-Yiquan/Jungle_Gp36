@@ -131,6 +131,7 @@ public class Map implements Page{
                                 for(int p = 0; p<8;p++){
                                     //Red color for Player 1
                                     if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r){
+                                        if(!P1.pieces[p].alive) continue;
                                         lock = 1;
                                         switch(P1.pieces[p].getPieceType()){
                                             case Rat:
@@ -161,6 +162,7 @@ public class Map implements Page{
                                     }
                                     //Blue color for Player 2
                                     if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r){
+                                        if(!P2.pieces[p].alive) continue;
                                         lock = 1;
                                         switch(P2.pieces[p].getPieceType()){
                                             case Rat:
@@ -196,6 +198,7 @@ public class Map implements Page{
                                 lock = 0;
                                 for(int p=0;p<8;p++){
                                     if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r){
+                                        if(!P1.pieces[p].alive) continue;
                                         lock = 1;
                                         switch(P1.pieces[p].getPieceType()){
                                             case Rat:
@@ -225,6 +228,7 @@ public class Map implements Page{
                                         }
                                     }
                                     if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r){
+                                        if(!P2.pieces[p].alive) continue;
                                         lock = 1;
                                         switch(P2.pieces[p].getPieceType()){
                                             case Rat:
@@ -260,6 +264,7 @@ public class Map implements Page{
                                 lock = 0;
                                 for(int p=0;p<8;p++){
                                     if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r){
+                                        if(!P1.pieces[p].alive) continue;
                                         lock = 1;
                                         switch(P1.pieces[p].getPieceType()){
                                             case Rat:
@@ -289,6 +294,7 @@ public class Map implements Page{
                                         }
                                     }
                                     if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r){
+                                        if(!P2.pieces[p].alive) continue;
                                         lock = 1;
                                         switch(P2.pieces[p].getPieceType()){
                                             case Rat:
@@ -324,18 +330,62 @@ public class Map implements Page{
                                 lock = 0 ;
                                 for(int p=0;p<8;p++){
                                     if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r){
+                                        if(!P1.pieces[p].alive) continue;
                                         lock = 1;
                                         switch(P1.pieces[p].getPieceType()){
                                             case Rat:
                                                 System.out.print("\033[31;4m*鼠*\033[0m");
                                                 break;
+                                            case Elephant:
+                                                System.out.print("\033[31;4m*象*\033[0m");
+                                                break;
+                                            case Cat:
+                                                System.out.print("\033[31;4m*猫*\033[0m");
+                                                break;
+                                            case Dog:
+                                                System.out.print("\033[31;4m*狗*\033[0m");
+                                                break;
+                                            case Lion:
+                                                System.out.print("\033[31;4m*狮*\033[0m");
+                                                break;
+                                            case Wolf:
+                                                System.out.print("\033[31;4m*狼*\033[0m");
+                                                break;
+                                            case Tiger:
+                                                System.out.print("\033[31;4m*虎*\033[0m");
+                                                break;
+                                            case Leopard:
+                                                System.out.print("\033[31;4m*豹*\033[0m");
+                                                break;
                                         }
                                     }
                                     if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r){
+                                        if(!P2.pieces[p].alive) continue;
                                         lock = 1;
                                         switch(P2.pieces[p].getPieceType()){
                                             case Rat:
                                                 System.out.print("\033[34;4m*鼠*\033[0m");
+                                                break;
+                                            case Elephant:
+                                                System.out.print("\033[34;4m*象*\033[0m");
+                                                break;
+                                            case Cat:
+                                                System.out.print("\033[34;4m*猫*\033[0m");
+                                                break;
+                                            case Dog:
+                                                System.out.print("\033[34;4m*狗*\033[0m");
+                                                break;
+                                            case Lion:
+                                                System.out.print("\033[34;4m*狮*\033[0m");
+                                                break;
+                                            case Wolf:
+                                                System.out.print("\033[34;4m*狼*\033[0m");
+                                                break;
+                                            case Tiger:
+                                                System.out.print("\033[34;4m~虎~\033[0m");
+                                                break;
+                                            case Leopard:
+                                                System.out.print("\033[34;4m~豹~\033[0m");
                                                 break;
                                         }
                                     }

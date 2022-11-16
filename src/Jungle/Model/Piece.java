@@ -1,9 +1,6 @@
-package Model;
+package Jungle.Model;
 
-
-
-
-public class Piece   {
+public class Piece implements Comparable<Piece> {
 
 	private int row;
 	
@@ -17,6 +14,14 @@ public class Piece   {
 	
 	private GroupType groupType; //choose whether it is BLUE or RED
 
+	public boolean alive;
+
+	public boolean inDen;
+
+	public boolean inTrap;
+
+	public boolean inRiver;
+
 	//Add a constructor
 	public Piece(int row, int col, PieceType type, int rank, GroupType groupType){
 		setRow(row);
@@ -24,7 +29,7 @@ public class Piece   {
 		setRank(rank);
 		setGroup(groupType);
 		setPieceType(type);
-
+		this.alive=true;
 	}
 
 
@@ -46,12 +51,10 @@ public class Piece   {
 		this.col = col;
 	}
 
-
 	//remove argument char name
 	public GroupType getGroup() {
 		return groupType;
 	}
-    
 
 	public void setGroup(GroupType group) {
          this.groupType=group;
@@ -60,69 +63,22 @@ public class Piece   {
 
 
 
+	// Add this method
+	public void setRank(int rank){
+		this.rank=rank;
+		
+	}
 
 
 	// Add this method
-	public int getRank()
-	{
+	public int getRank(){
 
-		if(this.type.toString().equals("Elephant"))
-		{
-			rank=8;
-			return rank;
-		}
-		if(this.type.toString().equals("Lion"))
-		{
-			rank=7;
-			return rank;
-		}
-
-		if(this.type.toString().equals("Tiger"))
-		{
-			rank=6;
-			return rank;
-		}
-		if(this.type.toString().equals("Leopard"))
-		{
-			rank=5;
-			return rank;
-		}
-		if(this.type.toString().equals("Wolf"))
-		{
-			rank=4;
-			return rank;
-		}
-		if(this.type.toString().equals("Dog"))
-		{
-			rank=3;
-			return rank;
-		}
-		if(this.type.toString().equals("Cat"))
-		{
-			rank=2;
-			return rank;
-		}
-		if (this.type.toString().equals("Rat"))
-		{
-			rank=1;
-		}
-		else
-		{
-			rank=0;
-		}
 		return rank;
-
-
-	}
-
-	public void setRank(int rank)
-	{
-        this.rank = rank;
 	}
     
 	// Add this method
-	public PieceType getPieceType()
-	{
+	public PieceType getPieceType(){
+
 		return this.type;
 	}
 
@@ -133,51 +89,35 @@ public class Piece   {
 	}
 
 	public boolean inTrap(Board board) {
-		if(board.board[row][col].getLocationType()==LocationType.TRAP){
-			return true;
-		}
-		return false;
+		return board.board[row][col].getLocationType() == LocationType.TRAP;
 	}
-
-
 
 	public boolean inRiver(Board board)
 	{
 
-		if(board.board[row][col].getLocationType()==LocationType.RIVER){
-			return true;
-		}
-
-		return false;
+		return board.board[row][col].getLocationType() == LocationType.RIVER;
 	}
-
-
 
 	public boolean inDen(Board board)
 	{
-		if(board.board[row][col].getLocationType()==LocationType.DEN){
-			return true;
-		}
-
-		return false;
+		return board.board[row][col].getLocationType() == LocationType.DEN;
 	}
-    
+
+	public void remove()
+	{
+		this.alive=false;
+	}
 	// Add a new method
-	public int compareTo(Piece piece,Board board){
+	@Override
+	public int compareTo(Piece piece) {
 		//To compare the priority of each piece
+		if(this.rank==1&&this.inRiver&&!piece.inRiver) return -1;
 
-		if(piece.inRiver(board) || this.inRiver(board)|| this.inDen(board) || piece.inDen(board)){
-			return 0;
-		}
+		if(this.rank==1&&!this.inRiver&&piece.inRiver) return -1;
 
-		if(this.inTrap(board)){
-			return -1;
-		}
+		if(this.inTrap) return -1;
 
-		if(piece.inTrap(board)){
-			return 1;
-		}
-
+		if(piece.inTrap) return 1;
 
 		if(this.getRank()==8 &&piece.getRank()==1) {
 			return -7;
@@ -189,7 +129,5 @@ public class Piece   {
 		}else{
 			return -1;
 		}
-
 	}
-	
 }
