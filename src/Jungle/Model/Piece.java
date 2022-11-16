@@ -1,9 +1,9 @@
-package Jungle.Model;
+package Model;
 
 
 
 
-public class Piece implements Comparable<Piece> {
+public class Piece   {
 
 	private int row;
 	
@@ -17,14 +17,6 @@ public class Piece implements Comparable<Piece> {
 	
 	private GroupType groupType; //choose whether it is BLUE or RED
 
-	public boolean alive;
-
-	public boolean inDen;
-
-	public boolean inTrap;
-
-	public boolean inRiver;
-
 	//Add a constructor
 	public Piece(int row, int col, PieceType type, int rank, GroupType groupType){
 		setRow(row);
@@ -32,12 +24,8 @@ public class Piece implements Comparable<Piece> {
 		setRank(rank);
 		setGroup(groupType);
 		setPieceType(type);
-		this.alive=true;
 
 	}
-
-
-
 
 
 	//remove argument string
@@ -45,36 +33,18 @@ public class Piece implements Comparable<Piece> {
 		return row;
 	}
 
-
-
-
-
-
 	public void setRow(int row) {
         this.row = row;
 	}
-
-
-
-
 
 	//remove argument string
 	public int getCol() {
 		return col;
 	}
 
-
-
-
-
-
 	public void setCol(int col) {
 		this.col = col;
 	}
-
-
-
-
 
 
 	//remove argument char name
@@ -83,11 +53,6 @@ public class Piece implements Comparable<Piece> {
 	}
     
 
-
-
-
-
-
 	public void setGroup(GroupType group) {
          this.groupType=group;
 	}
@@ -95,22 +60,69 @@ public class Piece implements Comparable<Piece> {
 
 
 
+
+
 	// Add this method
-	public void setRank(int rank){
-		this.rank=rank;
-		
+	public int getRank()
+	{
+
+		if(this.type.toString().equals("Elephant"))
+		{
+			rank=8;
+			return rank;
+		}
+		if(this.type.toString().equals("Lion"))
+		{
+			rank=7;
+			return rank;
+		}
+
+		if(this.type.toString().equals("Tiger"))
+		{
+			rank=6;
+			return rank;
+		}
+		if(this.type.toString().equals("Leopard"))
+		{
+			rank=5;
+			return rank;
+		}
+		if(this.type.toString().equals("Wolf"))
+		{
+			rank=4;
+			return rank;
+		}
+		if(this.type.toString().equals("Dog"))
+		{
+			rank=3;
+			return rank;
+		}
+		if(this.type.toString().equals("Cat"))
+		{
+			rank=2;
+			return rank;
+		}
+		if (this.type.toString().equals("Rat"))
+		{
+			rank=1;
+		}
+		else
+		{
+			rank=0;
+		}
+		return rank;
+
+
 	}
 
-
-	// Add this method
-	public int getRank(){
-
-		return rank;
+	public void setRank(int rank)
+	{
+        this.rank = rank;
 	}
     
 	// Add this method
-	public PieceType getPieceType(){
-
+	public PieceType getPieceType()
+	{
 		return this.type;
 	}
 
@@ -149,24 +161,35 @@ public class Piece implements Comparable<Piece> {
 
 		return false;
 	}
-
-	public void remove()
-	{
-		this.alive=false;
-	}
-	// Add a new method
-	@Override
-	public int compareTo(Piece piece){
-		//To compare the priority of each piece
-		//TODO: Please complete this compareTo function,
-		// for example: A.compareTo(B) when A can eat B, return a positive value
     
-    if(this.getRank()==8 &&piece.getRank()==1) {
+	// Add a new method
+	public int compareTo(Piece piece,Board board){
+		//To compare the priority of each piece
+
+		if(piece.inRiver(board) || this.inRiver(board)|| this.inDen(board) || piece.inDen(board)){
+			return 0;
+		}
+
+		if(this.inTrap(board)){
+			return -1;
+		}
+
+		if(piece.inTrap(board)){
+			return 1;
+		}
+
+
+		if(this.getRank()==8 &&piece.getRank()==1) {
 			return -7;
 		}else if(this.getRank()==1 &&piece.getRank()==8){
 			return 7;
 		}
-		return this.getRank()-piece.getRank();
+		if(this.getRank()>=piece.getRank()){
+			return 1;
+		}else{
+			return -1;
+		}
+
 	}
 	
 }
