@@ -48,8 +48,7 @@ public class Player {
 
 	public void initP1()
 	{
-		Piece elephant = new Piece(3,1,PieceType.Elephant,8,GroupType.RED);
-		pieces[0]=elephant;
+		Piece elephant = new Piece(3,1,PieceType.Elephant,8,GroupType.RED);pieces[0]=elephant;
 		Piece lion = new Piece(1,7,PieceType.Lion,7,GroupType.RED);pieces[1]=lion;
 		Piece tiger = new Piece(1,1,PieceType.Tiger,6,GroupType.RED);pieces[2]=tiger;
 		Piece leopard = new Piece(3,5,PieceType.Leopard,5,GroupType.RED);pieces[3]=leopard;
