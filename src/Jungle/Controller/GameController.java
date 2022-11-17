@@ -13,7 +13,12 @@ public class GameController {
 
     public GameKBL gameKBL;
 
-
+    public GameController(Player p1,Player p2, Board board)
+    {
+        P1 = p1;
+        P2 = p2;
+        this.board = board;
+    }
     /**
      * provide the logic for two players to play the game in turn,
      * there will be a while loop to ensure the game keep running,
@@ -22,9 +27,6 @@ public class GameController {
      */
     public void startGameController()
     {
-        P1 = new Player("Alice",GroupType.RED);
-        P2 = new Player("Bob",GroupType.BLUE);
-        board = new Board();
         gameKBL = new GameKBL(P1,P2,board);
         int turn = 0;
         boolean LOCK = true;

@@ -1,12 +1,15 @@
 package Jungle.Controller;
 
 
+import Jungle.Model.Board;
+import Jungle.Model.Player;
+
 import java.awt.event.KeyEvent;
 import java.util.Scanner;
 
 public class ManualKBL extends KeyboardListener{
 
-    public void listen()
+    public void listen(Player p1, Player p2, Board board)
     {
         String input;
         Scanner scan = new Scanner(System.in);
@@ -20,11 +23,11 @@ public class ManualKBL extends KeyboardListener{
         }
         switch (input){
             case "Back":
-                GlobalController globalController = new GlobalController();
+                GlobalController globalController = new GlobalController(p1,p2,board);
                 globalController.startGlobalController();
                 break;
             case "Game":
-                GameController gameController = new GameController();
+                GameController gameController = new GameController(p1,p2,board);
                 gameController.startGameController();
                 break;
         }

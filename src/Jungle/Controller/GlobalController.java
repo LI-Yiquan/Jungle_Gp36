@@ -1,16 +1,22 @@
 package Jungle.Controller;
 
 
+import Jungle.Model.Board;
+import Jungle.Model.GroupType;
+import Jungle.Model.Player;
 import Jungle.View.GameRule;
 
 public class GlobalController {
 
-    public static void main(String[] args)
+    Player P1;
+    Player P2;
+    Board board;
+    public GlobalController(Player p1, Player p2,Board board)
     {
-        GlobalController globalController = new GlobalController();
-        globalController.startGlobalController();
+       this.P1 = p1;
+       this.P2 = p2;
+       this.board = board;
     }
-
     /**
      * control the overall logic of this system, once the method
      * is triggered, there will be a while loop to ensure the system
@@ -68,7 +74,7 @@ public class GlobalController {
         GameRule a=new GameRule();
         a.printRule();
         ManualKBL manualKBL = new ManualKBL();
-        manualKBL.listen();
+        manualKBL.listen(P1,P2,board);
     }
 
     /**
@@ -82,7 +88,7 @@ public class GlobalController {
     {
         //start game
         System.out.println("Game!");
-        GameController gameController = new GameController();
+        GameController gameController = new GameController(P1, P2, board);
         gameController.startGameController();
     }
 

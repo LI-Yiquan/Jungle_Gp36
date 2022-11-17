@@ -1,6 +1,7 @@
 package Jungle.Controller;
 
 import Jungle.Model.*;
+import Jungle.View.GameRule;
 
 import java.util.Scanner;
 
@@ -27,6 +28,7 @@ public class GameKBL extends KeyboardListener{
         while(!check(input,player))
         {
             System.out.println("Wrong command, please try again.");
+            System.out.println("What to check rule -> (Manual)");
             System.out.print("Game====>");
             input = scan.nextLine();
         }
@@ -40,6 +42,7 @@ public class GameKBL extends KeyboardListener{
      */
     public boolean check(String command,Player player)
     {
+        if(command.equals("Manual")) return true;
         String[] tmp;
         Piece piece;
         tmp = command.split(" ");
@@ -164,6 +167,15 @@ public class GameKBL extends KeyboardListener{
      */
 
     public void move(String command, Player player) {
+        if(command.equals("Manual"))
+        {
+            System.out.println("Manual!");
+            GameRule a=new GameRule();
+            a.printRule();
+            ManualKBL manualKBL = new ManualKBL();
+            manualKBL.listen(player1,player2,board);
+            return;
+        }
         String[] tmp;
         Piece piece;
         tmp = command.split(" ");
