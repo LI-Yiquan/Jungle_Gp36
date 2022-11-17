@@ -2,13 +2,10 @@
 
 
 ### How to run
-Method 1: run Main.java in your IDE  
-Method 2: compile Main.java and run it in the terminal
-```
-cd src
-javac Jungle/Main.java
-java Jungle.Main
-```
+First play
+'''
+git clone 
+'''
 
 ### User Manual 
 #### in welcome page
