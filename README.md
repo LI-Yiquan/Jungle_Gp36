@@ -18,4 +18,5 @@ input "Quit": quit the system.
 
 #### in game page
 input "Piece direction": move Piece forward to the direction.  
-eg. "Cat k": move cat to the upper land.  
+direction: w a s d  
+eg. "Cat w": move cat to the upper land.  
