@@ -2,6 +2,7 @@ package Jungle.Controller;
 
 import Jungle.Model.*;
 import Jungle.View.GameRule;
+import Jungle.View.Map;
 
 import java.util.Scanner;
 
@@ -23,17 +24,18 @@ public class GameKBL extends KeyboardListener{
     {
         String input;
         Scanner scan = new Scanner(System.in);
-        System.out.println();
-        System.out.print("Game====>");
+        if(player.getGroup()==GroupType.RED)
+            System.out.print("(\033[31;4mAlice\033[0m)"+"Game====>");
+        else
+            System.out.print("(\033[34;4mBob\033[0m)"+"Game====>");
         input = scan.nextLine();
-        System.out.println();
         while(!check(input,player))
         {
-            System.out.println("Wrong command, please try again.");
+            System.out.println("Wrong command, please try again. Input 'Manual' to check rules.");
             System.out.println();
-            System.out.print("Game====>");
-            System.out.println();
+            System.out.print("("+player.getName()+")"+"Game====>");
             input = scan.nextLine();
+            System.out.println();
         }
         move(input,player);
     }
@@ -118,6 +120,8 @@ public class GameKBL extends KeyboardListener{
             default: return false;
         }
 
+        if(player.getGroup()==GroupType.RED&&piece.getRow()==1&&piece.getCol()==4) return false;
+        if(player.getGroup()==GroupType.BLUE&&piece.getRow()==9&&piece.getCol()==4) return false;
         //check whether the piece can eat another piece
         if(player.getGroup()==player1.getGroup())
         {

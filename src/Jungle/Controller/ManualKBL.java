@@ -15,14 +15,12 @@ public class ManualKBL extends KeyboardListener{
         Scanner scan = new Scanner(System.in);
         System.out.print("Manual====>");
         input = scan.nextLine();
-        System.out.println();
         while(!check(input))
         {
             System.out.println("Wrong command, please try again.");
             System.out.println();
             System.out.print("Manual====>");
             input = scan.nextLine();
-            System.out.println();
         }
         switch (input){
             case "Back":

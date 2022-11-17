@@ -1,5 +1,4 @@
 package Jungle.View;
-import Jungle.Controller.GameController;
 import Jungle.Model.Board;
 import Jungle.Model.*;
 
@@ -465,11 +464,11 @@ public class Map implements Page{
      * @param player
      */
     public void printPlayerPrompt(Player player){
-        if(player==P1){
-            System.out.println("Player [Alice] enter the next step:\n"+"You have"+Integer.toString(P1.PieceNum)+" piece(s) now\n");
+        if(player.getGroup()==GroupType.RED){
+            System.out.println("Player [Alice] enter the next step:\n"+"You have"+Integer.toString(player.PieceNum)+" piece(s) now\n");
         }
         else{
-            System.out.println("Player [Bob] enter the next step:\n"+"You have"+Integer.toString(P2.PieceNum)+" piece(s) now\n");
+            System.out.println("Player [Bob] enter the next step:\n"+"You have"+Integer.toString(player.PieceNum)+" piece(s) now\n");
         }
     }
     

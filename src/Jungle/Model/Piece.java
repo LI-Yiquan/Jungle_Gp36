@@ -83,7 +83,6 @@ public class Piece implements Comparable<Piece> {
 
 	public void remove()
 	{
-		System.out.println(this.getGroup()+" "+this.getPieceType()+" will be removed");
 		this.alive=false;
 	}
 	// Add a new method
@@ -94,7 +93,7 @@ public class Piece implements Comparable<Piece> {
 
 		if(this.rank==1&&!this.inRiver&&piece.inRiver) return -1;
 
-		if(this.inTrap) return -1;
+		//if(this.inTrap) return -1;
 
 		if(piece.inTrap) return 1;
 

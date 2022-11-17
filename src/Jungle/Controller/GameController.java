@@ -41,11 +41,11 @@ public class GameController {
             turn = 1 - turn;
             switch(checkEnd()){
                 case "P1":
-                    System.out.println("P1 wins the game!");
+                    System.out.println("\033[31;4mAlice\033[0m"+" wins the game!");
                     LOCK = false;
                     break;
                 case "P2":
-                    System.out.println("P2 wins the game!");
+                    System.out.println("\033[34;4mBob\033[0m"+" wins the game!");
                     LOCK = false;
                     break;
             }

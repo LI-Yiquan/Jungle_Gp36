@@ -14,14 +14,12 @@ public class WelcomeKBL extends KeyboardListener{
         int MODE;
         String input;
         final Scanner scan = new Scanner(System.in);
-        System.out.println();
         System.out.print("Welcome====>");
         input = scan.nextLine();
         while(!check(input))
         {
             System.out.println();
             System.out.println("Wrong command, please try again.");
-            System.out.println();
             System.out.print("Welcome====>");
             input = scan.nextLine();
         }
