@@ -6,7 +6,6 @@ public class GameRule implements Page {
     
     private String[] rule= {
         "                               Game   Rule                                                      ",
-        "   ",
         "   Animal Chess is played with two players, red and blue.The aim of the g",
         "   ame is to place a piece in the opponent's den at the opposite ends of ",
         "   the board. You can also win by capturing all opponent's pieces.",
@@ -75,9 +74,7 @@ public class GameRule implements Page {
      * Print the game rule to the user
      */
     public void printRule(){
-        System.out.println();
         System.out.println("- - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
-        System.out.println();
         for (int line=0; line<this.rule.length;line++){
             System.out.println(this.rule[line]);
         }
