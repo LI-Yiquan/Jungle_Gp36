@@ -21,7 +21,7 @@ public class GameController {
     }
     /**
      * provide the logic for two players to play the game in turn,
-     * there will be a while loop to ensure the game keep running,
+     * there will exist a 'while' loop to ensure the game keep running,
      * only when one of the players quit or one player wins the game will the while loop be broken.
      *
      */

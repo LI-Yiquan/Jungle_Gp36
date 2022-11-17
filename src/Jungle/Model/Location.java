@@ -48,10 +48,6 @@ public class Location {
 	}
 
 
-
-
-
-
 	public int getCol() {
 		return col;
 	}
@@ -59,11 +55,6 @@ public class Location {
 	public void setCol(int col) {
 		this.col=col;
 	}
-
-
-
-
-
 
 
 	public GroupType getGroup() {

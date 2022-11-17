@@ -42,7 +42,6 @@ public class Board {
 			animals[i] = new Piece[8];
 		}
 
-
 		animals[1][1] = new Piece(1,1,PieceType.Dog,3, GroupType.RED);
 		animals[1][7] = new Piece(1,7,PieceType.Tiger,6,GroupType.RED);
 		animals[2][2] = new Piece(2,2,PieceType.Dog,3,GroupType.RED);
@@ -71,8 +70,6 @@ public class Board {
 				if(animals[i][j]==null) animals[i][j] = new Piece(i,j,PieceType.Other,-1,GroupType.OTHER);
 			}
 		}
-
-
 
 		board[1][3] = new Location(LocationType.TRAP,GroupType.RED,1,3);
 		board[2][4] = new Location(LocationType.TRAP,GroupType.RED,2,4);
@@ -103,13 +100,6 @@ public class Board {
 			}
 		}
 	}
-
-
-	public void setLocation(Location location){
-		board[location.getRow()][location.getCol()] = location;
-	}
-
-
 
 
 }
