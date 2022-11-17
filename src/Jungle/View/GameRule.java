@@ -28,10 +28,11 @@ public class GameRule implements Page {
         "   Traps - The three squares around the den, act as traps for the oppnent",
         "   pieces. Any opponent piece occupying one of the traps loses its rank a",
         "   nd can be captured by any animal.",
+            /*
         "   ",
         "   Ranking : 1 Rat 2 Cat 3 Dog 4 Wolf 5 Leopard 6 Tiger 7 Lion 8 Elephant",
         "   More descriptions/instructions of this game can be found in this link:",
-        "   http://ancientchess.com/page/play-doushouqi.htm",
+        "   http://ancientchess.com/page/play-doushouqi.htm",*/
     } ;  
 
     private int returnTo;
