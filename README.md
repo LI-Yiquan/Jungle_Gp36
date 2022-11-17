@@ -5,7 +5,7 @@
 First play
 
 ```
-git clone https://github.com/LI-Yiquan/Jungle_Gp36.git && cd Jungle/src && sh BuildGame
+git clone https://github.com/LI-Yiquan/Jungle_Gp36.git && cd Jungle_Gp36/src && sh BuildGame
 ```
 
 Play for the second time
