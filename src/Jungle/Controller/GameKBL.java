@@ -23,13 +23,16 @@ public class GameKBL extends KeyboardListener{
     {
         String input;
         Scanner scan = new Scanner(System.in);
+        System.out.println();
         System.out.print("Game====>");
         input = scan.nextLine();
+        System.out.println();
         while(!check(input,player))
         {
             System.out.println("Wrong command, please try again.");
-            System.out.println("What to check rule -> (Manual)");
+            System.out.println();
             System.out.print("Game====>");
+            System.out.println();
             input = scan.nextLine();
         }
         move(input,player);
@@ -42,7 +45,7 @@ public class GameKBL extends KeyboardListener{
      */
     public boolean check(String command,Player player)
     {
-        if(command.equals("Manual")) return true;
+        if(command.equals("Manual")||command.equals("Quit")) return true;
         String[] tmp;
         Piece piece;
         tmp = command.split(" ");
@@ -167,6 +170,12 @@ public class GameKBL extends KeyboardListener{
      */
 
     public void move(String command, Player player) {
+        if(command.equals("Quit"))
+        {
+            if(player.getGroup()==player1.getGroup()) player2.PieceNum=0;
+            else player1.PieceNum=0;
+            return;
+        }
         if(command.equals("Manual"))
         {
             System.out.println("Manual!");

@@ -2,9 +2,9 @@ package Jungle.Controller;
 
 
 import Jungle.Model.Board;
-import Jungle.Model.GroupType;
 import Jungle.Model.Player;
 import Jungle.View.GameRule;
+import Jungle.View.WelcomePage;
 
 public class GlobalController {
 
@@ -58,7 +58,8 @@ public class GlobalController {
      */
     public void onWelcome()
     {
-        System.out.println("Welcome! 1.Manual 2.Game 3.Quit");
+        WelcomePage welcomePage = new WelcomePage();
+        welcomePage.printWelcomePage();
     }
 
     /**

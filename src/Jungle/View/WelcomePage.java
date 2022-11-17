@@ -23,9 +23,9 @@ public class WelcomePage implements Page{
         "                       ╟─────┬───────────────╢                            ",
         "                       ║ NUM │    ACTION     ║                            ",
         "                       ╟─────┼───────────────╢                            ",
-        "                       ║  1  │  User Manual  ║                            ",
-        "                       ║  2  │  Start Game   ║                            ",
-        "                       ║  3  │  Quit Game    ║                            ",
+        "                       ║  1  │    Manual     ║                            ",
+        "                       ║  2  │     Game      ║                            ",
+        "                       ║  3  │     Quit      ║                            ",
         "                       ╚═════╧═══════════════╝                            "
     };
     /** Game rule page when user choose "1.user manual" in the menu*/
@@ -38,7 +38,7 @@ public class WelcomePage implements Page{
      */
     public void setWelcomeIcon(String[] welcomeIcon) {
         this.welcomeIcon= welcomeIcon;
-    }
+    } 
     
     /**
      * Set the start menu
@@ -89,6 +89,7 @@ public class WelcomePage implements Page{
         System.out.println();
         System.out.println();
         a.printMenu();
+        System.out.println();
         System.out.println("- - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
     }
 
