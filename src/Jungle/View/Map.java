@@ -24,7 +24,7 @@ public class Map implements Page{
     private String inputRequirement;
     /** the Game Rule page for the game board */
     private GameRule ruleInMap;
-    /** the Game Players */
+
     private Player P1,P2;
     /**
      * Set the game board
@@ -64,16 +64,17 @@ public class Map implements Page{
     /**
      * Set the standard format of players' input 
      * "u","d","l","r" means move up , down, left, right seperately
-     * user's input should follow the format of "pieceName direction"
-     * (4 directions: "w","s","a","d")
+     * user's input should follow the format of "row column direction action"
+     * (4 directions: "u","d","l","r"  2 actions:"jump","walk")
+     * If player want to jump left the piece which is in the first row , second colomn , he should enter "1,2,l,jump". 
      * Two adjacent elements are separated by ','.
      * @param inputRequirement
      */
     public void setInputRequirement(String inputRequirement) {
         inputRequirement ="Please input the piece name you want to move and the movement\n"+
-        "The movement is consist 4 directions\n"+
-        "Directions: [Up: w,  Down: s, Left: a, Right:d]"+
-        "The input format should be [Piece Name,Direction]. For example,(Lion,w),(Rat,s).";
+        "The movement is consist 4 directions and 2 actions\n"+
+        "Directions: [Up: u,  Down: d, Left: l, Right:r]; Actions:[jump, walk]"+
+        "The input format should be [Piece,Direction,Action], eg(Lion,l,jump)";
     }
     
     /**
@@ -89,7 +90,7 @@ public class Map implements Page{
      * @param ruleInMap
      */
     public void setRuleInMap(Page ruleInMap) {
-        ruleInMap = new GameRule();
+        
     }
 
     /**
@@ -110,11 +111,39 @@ public class Map implements Page{
         int lock = 0;
         int r = 1;
         int c = 1;
+        System.out.println("- - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
+        System.out.println();
         for(int i= 0; i< 19; i++) {
             if (i % 2 == 0)
             {
                 for (int j = 0; j < 15; j++) {
-                    if (j % 2 == 0) {System.out.print("|");}
+                    if (i==0 & j==14){
+                        System.out.print("|              中英文对照表");
+                    }
+                    else if (i==2 & j==14){
+                        System.out.print("|    Chinese-English Comparison Table");
+                    }
+                    else if (i==4 & j==14){
+                        System.out.print("|       1. 鼠  Rat      2. 猫  Cat");
+                    }
+                    else if (i==6 & j==14){
+                        System.out.print("|       3. 狗  Dog      4. 狼  Wolf");
+                    }
+                    else if (i==8 & j==14){
+                        System.out.print("|       5. 豹  Leopard  6. 虎  Tiger");
+                    }
+                    else if (i==10 & j==14){
+                        System.out.print("|       7. 狮  Lion     8. 象  Elephant");
+                    }else if (i==12 & j==14){
+                        System.out.print("|    数字代表等级  Number means the rank");
+                    }else if (i==14 & j==14){
+                        System.out.print("|          兽穴    Den    ****   ");
+                    }else if (i==16 & j==14){
+                        System.out.print("|          陷阱    Trap   XXXX   ");
+                    }else if (i==18 & j==14){
+                        System.out.print("|          河流    River  ~~~~   ");
+                    }
+                    else if(j % 2 == 0) {System.out.print("|");}
                     else {System.out.print("————");}
                 }
             }
@@ -129,7 +158,7 @@ public class Map implements Page{
                                 lock =0;
                                 for(int p = 0; p<8;p++){
                                     //Red color for Player 1
-                                    if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r && P1.pieces[p].alive){
+                                    if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r&&P1.pieces[p].alive){
                                         lock = 1;
                                         switch(P1.pieces[p].getPieceType()){
                                             case Rat:
@@ -393,6 +422,8 @@ public class Map implements Page{
             }
             System.out.println();
         }
+        System.out.println();
+        System.out.println("- - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
     }
 
     /**
@@ -413,14 +444,14 @@ public class Map implements Page{
      * Print the content of game rule
      */
     public void printRule(){
-        ruleInMap.printRule();
+        
     }
     
     /**
      * Print the quit message
      */
     public void printToQuit(){
-        System.out.println("Player quited the game. Thank you for your playing.");
+        System.out.println("You quited the game.");
     }
     
     /**
@@ -435,12 +466,7 @@ public class Map implements Page{
      * @param player
      */
     public void printPlayerPrompt(Player player){
-         if(player==P1){
-            System.out.println("Player [Alice] enter the next step:\n"+"You have"+Integer.toString(P1.PieceNum)+" piece(s) now\n");
-        }
-        else{
-            System.out.println("Player [Bob] enter the next step:\n"+"You have"+Integer.toString(P2.PieceNum)+" piece(s) now\n");
-        }
+
     }
     
     /**
