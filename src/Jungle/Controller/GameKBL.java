@@ -246,6 +246,7 @@ public class GameKBL extends KeyboardListener{
                     {
                         piece.setCol(piece.getCol() + 3);
                     }
+                    else piece.setCol(piece.getCol() + 1);
                 }
                 else piece.setCol(piece.getCol() + 1);
                 break;
