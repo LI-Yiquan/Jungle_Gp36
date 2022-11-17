@@ -1,11 +1,9 @@
 # Jungle Group 36
 
 
-### Development Note
-If you are using Intellij and some path cannot be found, please reproject and invalidate caches.
-
-### Latest Version
-You can run Main.java to start the game. Manual need to be added. Priority compare need to be added.
+### How to run
+Method 1: run Main.java in your IDE
+Method 2: compile Main.java and run it in the terminal
 
 ### User Manual 
 ##### welcome page
