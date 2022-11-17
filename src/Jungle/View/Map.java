@@ -64,17 +64,16 @@ public class Map implements Page{
     /**
      * Set the standard format of players' input 
      * "u","d","l","r" means move up , down, left, right seperately
-     * user's input should follow the format of "row column direction action"
-     * (4 directions: "u","d","l","r"  2 actions:"jump","walk")
-     * If player want to jump left the piece which is in the first row , second colomn , he should enter "1,2,l,jump". 
+     * user's input should follow the format of "pieceName direction"
+     * (4 directions: "w","s","a","d")
      * Two adjacent elements are separated by ','.
      * @param inputRequirement
      */
     public void setInputRequirement(String inputRequirement) {
         inputRequirement ="Please input the piece name you want to move and the movement\n"+
-        "The movement is consist 4 directions and 2 actions\n"+
-        "Directions: [Up: u,  Down: d, Left: l, Right:r]; Actions:[jump, walk]"+
-        "The input format should be [Piece,Direction,Action], eg(Lion,l,jump)";
+                "The movement is consist 4 directions\n"+
+                "Directions: [Up: w,  Down: s, Left: a, Right:d]"+
+                "The input format should be [Piece Name,Direction]. For example,(Lion,w),(Rat,s).";
     }
     
     /**
@@ -90,7 +89,7 @@ public class Map implements Page{
      * @param ruleInMap
      */
     public void setRuleInMap(Page ruleInMap) {
-        
+        ruleInMap = new GameRule();
     }
 
     /**
@@ -444,14 +443,14 @@ public class Map implements Page{
      * Print the content of game rule
      */
     public void printRule(){
-        
+        ruleInMap.printRule();
     }
     
     /**
      * Print the quit message
      */
     public void printToQuit(){
-        System.out.println("You quited the game.");
+        System.out.println("Player quited the game. Thank you for your playing.");
     }
     
     /**
@@ -466,7 +465,12 @@ public class Map implements Page{
      * @param player
      */
     public void printPlayerPrompt(Player player){
-
+        if(player==P1){
+            System.out.println("Player [Alice] enter the next step:\n"+"You have"+Integer.toString(P1.PieceNum)+" piece(s) now\n");
+        }
+        else{
+            System.out.println("Player [Bob] enter the next step:\n"+"You have"+Integer.toString(P2.PieceNum)+" piece(s) now\n");
+        }
     }
     
     /**
