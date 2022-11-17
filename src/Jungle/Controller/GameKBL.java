@@ -226,6 +226,7 @@ public class GameKBL extends KeyboardListener{
                 else piece.setCol(piece.getCol() + 1);
                 break;
         }
+
         if(player.getGroup()==player1.getGroup())
         {
             for(int i=0;i<8;i++)

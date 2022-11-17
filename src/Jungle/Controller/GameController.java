@@ -47,7 +47,6 @@ public class GameController {
                     LOCK = false;
                     break;
             }
-
         }
 
     }

@@ -83,6 +83,7 @@ public class Piece implements Comparable<Piece> {
 
 	public void remove()
 	{
+		System.out.println(this.getGroup()+" "+this.getPieceType()+" will be removed");
 		this.alive=false;
 	}
 	// Add a new method

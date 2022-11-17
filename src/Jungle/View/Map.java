@@ -130,8 +130,7 @@ public class Map implements Page{
                                 lock =0;
                                 for(int p = 0; p<8;p++){
                                     //Red color for Player 1
-                                    if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r){
-                                        if(!P1.pieces[p].alive) continue;
+                                    if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r && P1.pieces[p].alive){
                                         lock = 1;
                                         switch(P1.pieces[p].getPieceType()){
                                             case Rat:
@@ -161,8 +160,7 @@ public class Map implements Page{
                                         }
                                     }
                                     //Blue color for Player 2
-                                    if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r){
-                                        if(!P2.pieces[p].alive) continue;
+                                    if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r&&P2.pieces[p].alive){
                                         lock = 1;
                                         switch(P2.pieces[p].getPieceType()){
                                             case Rat:
@@ -197,8 +195,7 @@ public class Map implements Page{
                             case TRAP:
                                 lock = 0;
                                 for(int p=0;p<8;p++){
-                                    if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r){
-                                        if(!P1.pieces[p].alive) continue;
+                                    if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r&&P1.pieces[p].alive){
                                         lock = 1;
                                         switch(P1.pieces[p].getPieceType()){
                                             case Rat:
@@ -227,8 +224,7 @@ public class Map implements Page{
                                                 break;
                                         }
                                     }
-                                    if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r){
-                                        if(!P2.pieces[p].alive) continue;
+                                    if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r&&P2.pieces[p].alive){
                                         lock = 1;
                                         switch(P2.pieces[p].getPieceType()){
                                             case Rat:
@@ -263,8 +259,7 @@ public class Map implements Page{
                             case RIVER:
                                 lock = 0;
                                 for(int p=0;p<8;p++){
-                                    if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r){
-                                        if(!P1.pieces[p].alive) continue;
+                                    if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r&&P1.pieces[p].alive){
                                         lock = 1;
                                         switch(P1.pieces[p].getPieceType()){
                                             case Rat:
@@ -293,8 +288,7 @@ public class Map implements Page{
                                                 break;
                                         }
                                     }
-                                    if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r){
-                                        if(!P2.pieces[p].alive) continue;
+                                    if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r&&P2.pieces[p].alive){
                                         lock = 1;
                                         switch(P2.pieces[p].getPieceType()){
                                             case Rat:
@@ -329,8 +323,7 @@ public class Map implements Page{
                             case DEN:
                                 lock = 0 ;
                                 for(int p=0;p<8;p++){
-                                    if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r){
-                                        if(!P1.pieces[p].alive) continue;
+                                    if(P1.pieces[p].getCol()==c && 10-P1.pieces[p].getRow()==r&&P1.pieces[p].alive){
                                         lock = 1;
                                         switch(P1.pieces[p].getPieceType()){
                                             case Rat:
@@ -359,8 +352,7 @@ public class Map implements Page{
                                                 break;
                                         }
                                     }
-                                    if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r){
-                                        if(!P2.pieces[p].alive) continue;
+                                    if(P2.pieces[p].getCol()==c && 10-P2.pieces[p].getRow()==r&&P2.pieces[p].alive){
                                         lock = 1;
                                         switch(P2.pieces[p].getPieceType()){
                                             case Rat:
