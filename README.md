@@ -3,8 +3,15 @@
 
 ### How to run
 First play
+
 '''
-git clone 
+git clone https://github.com/LI-Yiquan/Jungle_Gp36.git && cd Jungle/src && sh BuildGame
+'''
+
+Play for the second time
+
+'''
+sh StartGame
 '''
 
 ### User Manual 
