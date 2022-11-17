@@ -211,6 +211,7 @@ public class GameKBL extends KeyboardListener{
                     {
                         piece.setCol(piece.getCol() - 3);
                     }
+                    else piece.setCol(piece.getCol() - 1);
                 }
                 else piece.setCol(piece.getCol() - 1);
                 break;
@@ -222,6 +223,7 @@ public class GameKBL extends KeyboardListener{
                     {
                         piece.setRow(piece.getRow() - 4);
                     }
+                    else piece.setRow(piece.getRow() - 1);
                 }
                 else piece.setRow(piece.getRow() - 1);
                 break;
@@ -233,6 +235,7 @@ public class GameKBL extends KeyboardListener{
                     {
                         piece.setRow(piece.getRow() + 4);
                     }
+                    else piece.setRow(piece.getRow() + 1);
                 }
                 else piece.setRow(piece.getRow() + 1);
                 break;
