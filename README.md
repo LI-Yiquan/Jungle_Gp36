@@ -1,5 +1,6 @@
 # Jungle Group 36
 
+## MacOS
 
 ### How to run
 #### First play
