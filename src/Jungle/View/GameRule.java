@@ -81,8 +81,7 @@ public class GameRule implements Page {
             System.out.println(this.rule[line]);
         }
         System.out.println();
-        System.out.println("- - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
-        System.out.println();
+        System.out.println("Game: return to game. Back: return to menu.");
     }
 
     /**

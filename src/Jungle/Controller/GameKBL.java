@@ -32,10 +32,8 @@ public class GameKBL extends KeyboardListener{
         while(!check(input,player))
         {
             System.out.println("Wrong command, please try again. Input 'Manual' to check rules.");
-            System.out.println();
             System.out.print("("+player.getName()+")"+"Game====>");
             input = scan.nextLine();
-            System.out.println();
         }
         move(input,player);
     }
