@@ -88,6 +88,8 @@ public class WelcomePage implements Page{
         a.printIcon();
         System.out.println();
         System.out.println();
+        System.out.println();
+        System.out.println();
         a.printMenu();
         System.out.println();
         System.out.println("- - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
