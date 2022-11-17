@@ -4,10 +4,6 @@ import Jungle.Model.*;
 import Jungle.View.Map;
 
 
-import java.rmi.MarshalledObject;
-import java.util.Scanner;
-
-
 public class GameController {
 
     public Player P1;

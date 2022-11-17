@@ -10,8 +10,7 @@ public class Piece implements Comparable<Piece> {
     
 	// add an attribute
 	private int rank;
-	
-	
+
 	private GroupType groupType; //choose whether it is BLUE or RED
 
 	public boolean alive;
@@ -31,7 +30,6 @@ public class Piece implements Comparable<Piece> {
 		setPieceType(type);
 		this.alive=true;
 	}
-
 
 	//remove argument string
 	public int getRow() {
@@ -60,15 +58,11 @@ public class Piece implements Comparable<Piece> {
          this.groupType=group;
 	}
 
-
-
-
 	// Add this method
 	public void setRank(int rank){
 		this.rank=rank;
 		
 	}
-
 
 	// Add this method
 	public int getRank(){
@@ -82,25 +76,9 @@ public class Piece implements Comparable<Piece> {
 		return this.type;
 	}
 
-
     // Add this method
 	public void setPieceType(PieceType type){
         this.type = type;
-	}
-
-	public boolean inTrap(Board board) {
-		return board.board[row][col].getLocationType() == LocationType.TRAP;
-	}
-
-	public boolean inRiver(Board board)
-	{
-
-		return board.board[row][col].getLocationType() == LocationType.RIVER;
-	}
-
-	public boolean inDen(Board board)
-	{
-		return board.board[row][col].getLocationType() == LocationType.DEN;
 	}
 
 	public void remove()

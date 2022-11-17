@@ -102,18 +102,6 @@ public class Board {
 				if(board[i][j]==null) board[i][j] = new Location(LocationType.LAND,GroupType.OTHER,i,j);
 			}
 		}
-
-
-
-
-
-
-
-
-
-
-
-
 	}
 
 

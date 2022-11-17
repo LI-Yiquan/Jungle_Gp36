@@ -1,11 +1,7 @@
 package Jungle.Controller;
 
-import Jungle.Model.Board;
-import Jungle.Model.Piece;
-import Jungle.Model.PieceType;
-import Jungle.Model.Player;
+import Jungle.Model.*;
 
-import java.awt.event.KeyEvent;
 import java.util.Scanner;
 
 public class GameKBL extends KeyboardListener{
@@ -40,9 +36,6 @@ public class GameKBL extends KeyboardListener{
      * check whether the format of user input is valid or invalid
      * @param command command to be checked
      * @return check result
-     *
-     *
-     *
      *
      */
     public boolean check(String command,Player player)
@@ -171,37 +164,19 @@ public class GameKBL extends KeyboardListener{
      */
 
     public void move(String command, Player player) {
-        //TODO: move lion and tiger across river
         String[] tmp;
         Piece piece;
         tmp = command.split(" ");
         switch (tmp[0]) {
-            case "Elephant":
-                piece = player.pieces[0];
-                break;
-            case "Lion":
-                piece = player.pieces[1];
-                break;
-            case "Tiger":
-                piece = player.pieces[2];
-                break;
-            case "Leopard":
-                piece = player.pieces[3];
-                break;
-            case "Wolf":
-                piece = player.pieces[4];
-                break;
-            case "Dog":
-                piece = player.pieces[5];
-                break;
-            case "Cat":
-                piece = player.pieces[6];
-                break;
-            case "Rat":
-                piece = player.pieces[7];
-                break;
-            default:
-                piece = player.pieces[0];
+            case "Elephant": piece = player.pieces[0]; break;
+            case "Lion": piece = player.pieces[1]; break;
+            case "Tiger": piece = player.pieces[2]; break;
+            case "Leopard": piece = player.pieces[3]; break;
+            case "Wolf": piece = player.pieces[4]; break;
+            case "Dog": piece = player.pieces[5]; break;
+            case "Cat": piece = player.pieces[6]; break;
+            case "Rat": piece = player.pieces[7]; break;
+            default: piece = player.pieces[0];
         }
         switch (tmp[1]) {
             case "a":
@@ -260,14 +235,16 @@ public class GameKBL extends KeyboardListener{
                 {
                     player2.pieces[i].remove();
                     player2.PieceNum--;
-                    System.out.println(player2.pieces[i].getPieceType()+" is eaten!");
                 }
             }
             if(piece.getRow()==9&&piece.getCol()==4) piece.inDen=true;
-            else if((4<=piece.getRow()||piece.getRow()<=6)&&
+            else if((4<=piece.getRow()&&piece.getRow()<=6)&&
                     (piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||piece.getCol()==6)) piece.inRiver=true;
-            else if((piece.getRow()==9&&piece.getCol()==3)||
-                    (piece.getRow()==8&&piece.getCol()==4)||(piece.getRow()==9&&piece.getCol()==5)) piece.inTrap=true;
+            else if(((piece.getRow()==9)&&(piece.getCol()==3))||((piece.getRow()==9)&&(piece.getCol()==5))||
+                    ((piece.getRow()==8)&&(piece.getCol()==4)))
+            {
+                piece.inTrap=true;
+            }
             else{
                 piece.inDen=false;
                 piece.inTrap=false;
@@ -283,14 +260,13 @@ public class GameKBL extends KeyboardListener{
                 {
                     player1.pieces[i].remove();
                     player1.PieceNum--;
-                    System.out.println(player1.pieces[i].getPieceType()+" is eaten!");
                 }
             }
             if(piece.getRow()==1&&piece.getCol()==4) piece.inDen=true;
-            else if((4<=piece.getRow()||piece.getRow()<=6)&&
+            else if((4<=piece.getRow()&&piece.getRow()<=6)&&
                     (piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||piece.getCol()==6)) piece.inRiver=true;
-            else if((piece.getRow()==1&&piece.getCol()==3)||
-                    (piece.getRow()==2&&piece.getCol()==4)||(piece.getRow()==1&&piece.getCol()==5)) piece.inTrap=true;
+            else if(((piece.getRow()==1)&&(piece.getCol()==3))||((piece.getRow()==1)&&(piece.getCol()==5))||
+                    ((piece.getRow()==2)&&(piece.getCol()==4))) piece.inTrap=true;
             else{
                 piece.inDen=false;
                 piece.inTrap=false;

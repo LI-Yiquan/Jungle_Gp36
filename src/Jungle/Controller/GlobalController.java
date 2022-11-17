@@ -3,8 +3,6 @@ package Jungle.Controller;
 
 import Jungle.View.GameRule;
 
-import java.util.Scanner;
-
 public class GlobalController {
 
     public static void main(String[] args)
@@ -12,8 +10,6 @@ public class GlobalController {
         GlobalController globalController = new GlobalController();
         globalController.startGlobalController();
     }
-
-    public KeyboardListener ManualListener = new ManualKBL();
 
     /**
      * control the overall logic of this system, once the method
@@ -46,8 +42,6 @@ public class GlobalController {
             default:
                 onQuit();
         }
-
-
         //scan.close();
     }
 

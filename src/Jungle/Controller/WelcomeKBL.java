@@ -37,6 +37,4 @@ public class WelcomeKBL extends KeyboardListener{
         return sentence.equals("Manual") || sentence.equals("Game") || sentence.equals("Quit");
     }
 
-
-
 }
