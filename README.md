@@ -1,13 +1,22 @@
 # Jungle Group 36
 
+## MacOS
 
 ### How to run
-Method 1: run Main.java in your IDE  
-Method 2: compile Main.java and run it in the terminal
+#### First play
+if you never install Jungle_Gp36
+
 ```
-cd src
-javac Jungle/Main.java
-java Jungle.Main
+git clone https://github.com/LI-Yiquan/Jungle_Gp36.git && cd Jungle_Gp36/src && sh BuildGame
+```
+if you have already installed Jungle_Gp36
+```
+yes | rm -r Jungle_Gp36 && git clone https://github.com/LI-Yiquan/Jungle_Gp36.git && cd Jungle_Gp36/src && sh BuildGame
+```
+#### Play for the second time
+
+```
+sh StartGame
 ```
 
 ### User Manual 
