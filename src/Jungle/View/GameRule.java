@@ -10,11 +10,10 @@ public class GameRule implements Page {
         "   ame is to place a piece in the opponent's den at the opposite ends of ",
         "   the board. You can also win by capturing all opponent's pieces.",
         "   ",
-        "   Movement - Every piece can move one step either forward,backward,left,",
-        "   or right, with some rules. Only rat can enter the river area,while lio",
-        "   ns and tigers can leap across the river. Capturing a piece can be done",
-        "    simply by moving your piece onto the square occupied by the opponents",
-        "    You can't go into your own den.",
+        "   Movement - Every piece can move one step once. Only rat can enter the ",
+        "   river area,while lions and tigers can leap across the river. Capturing",
+        "    a piece can be done simply by moving your piece onto the square occup",
+        "   ied by the opponents. You can't go into your own den.",
         "   ",
         "   Capturing pieces - Each animal piece can only capture an animal ranked",
         "   lower or equal to itself. Elephant can't capture rat, while rat can ca",
@@ -22,11 +21,8 @@ public class GameRule implements Page {
         "   ",
         "   Traps - The three squares around the den, act as traps for the oppnent",
         "   pieces. Any opponent piece in traps can be captured by any animal.",
-            /*
         "   ",
-        "   Ranking : 1 Rat 2 Cat 3 Dog 4 Wolf 5 Leopard 6 Tiger 7 Lion 8 Elephant",
-        "   More descriptions/instructions of this game can be found in this link:",
-        "   http://ancientchess.com/page/play-doushouqi.htm",*/
+        "   More details: http://ancientchess.com/page/play-doushouqi.htm",
     } ;  
 
     private int returnTo;
@@ -74,7 +70,7 @@ public class GameRule implements Page {
             System.out.println(this.rule[line]);
         }
         System.out.println();
-        System.out.println("Game: return to game. Back: return to menu.");
+        System.out.println("Game: return to game    Back: return to menu");
         System.out.println("- - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
 
     }
