@@ -54,35 +54,58 @@ public class GameKBL extends KeyboardListener{
         if(tmp.length!=2) return false;
         switch (tmp[0]) {
             case "Elephant":
-                if (!player.pieces[0].alive) return false;
+                if (!player.pieces[0].alive)
+                {
+                    System.out.println("Elephant is not alive.");return false;
+                }
                 piece = player.pieces[0];
                 break;
             case "Lion":
-                if (!player.pieces[1].alive) return false;
+                if (!player.pieces[1].alive){
+                    System.out.println("Lion is not alive.");return false;
+                }
                 piece = player.pieces[1];
                 break;
             case "Tiger":
-                if (!player.pieces[2].alive) return false;
+                if (!player.pieces[2].alive)
+                {
+                    System.out.println("Tiger is not alive.");return false;
+                }
                 piece = player.pieces[2];
                 break;
             case "Leopard":
-                if (!player.pieces[3].alive) return false;
+                if (!player.pieces[3].alive)
+                {
+                    System.out.println("Leopard is not alive.");return false;
+                }
                 piece = player.pieces[3];
                 break;
             case "Wolf":
-                if (!player.pieces[4].alive) return false;
+                if (!player.pieces[4].alive)
+                {
+                    System.out.println("Wolf is not alive.");return false;
+                }
                 piece = player.pieces[4];
                 break;
             case "Dog":
-                if (!player.pieces[5].alive) return false;
+                if (!player.pieces[5].alive)
+                {
+                    System.out.println("Dog is not alive");return false;
+                }
                 piece = player.pieces[5];
                 break;
             case "Cat":
-                if (!player.pieces[6].alive) return false;
+                if (!player.pieces[6].alive)
+                {
+                    System.out.println("Cat is not alive");return false;
+                }
                 piece = player.pieces[6];
                 break;
             case "Rat":
-                if (!player.pieces[7].alive) return false;
+                if (!player.pieces[7].alive)
+                {
+                    System.out.println("Rat is not alive");return false;
+                }
                 piece = player.pieces[7];
                 break;
             default: return false;
@@ -90,38 +113,59 @@ public class GameKBL extends KeyboardListener{
         int row,col;
         switch (tmp[1]) {
             case "a":
-                if((piece.getCol() - 1)<1) return false;
+                if((piece.getCol() - 1)<1)
+                {
+                    System.out.println("Out of bound.");return false;
+                }
                 row=piece.getRow();
                 col=piece.getCol()-1;
                 if(checkConflict(row,col,player)) return false;
-                if(checkRiver(row,col,piece)) return false;
+                if(checkRiver(row,col,piece))
+                {
+                    System.out.println("This piece can not across/in the river.");return false;
+                }
                 break;
             case "s":
                 if((piece.getRow() - 1)<1) return false;
                 row=piece.getRow()-1;
                 col=piece.getCol();
                 if(checkConflict(row,col,player)) return false;
-                if(checkRiver(row,col,piece)) return false;
+                if(checkRiver(row,col,piece))
+                {
+                    System.out.println("This piece can not across/in the river.");return false;
+                }
                 break;
             case "w":
                 if((piece.getRow() + 1)>9) return false;
                 row=piece.getRow()+1;
                 col=piece.getCol();
                 if(checkConflict(row,col,player)) return false;
-                if(checkRiver(row,col,piece)) return false;
+                if(checkRiver(row,col,piece))
+                {
+                    System.out.println("This piece can not across/in the river.");return false;
+                }
                 break;
             case "d":
                 if((piece.getCol() + 1)>7) return false;
                 row=piece.getRow();
                 col=piece.getCol()+1;
                 if(checkConflict(row,col,player)) return false;
-                if(checkRiver(row,col,piece)) return false;
+                if(checkRiver(row,col,piece))
+                {
+                    System.out.println("This piece can not across/in the river.");return false;
+                }
                 break;
             default: return false;
         }
 
-        if(player.getGroup()==GroupType.RED&&piece.getRow()==1&&piece.getCol()==4) return false;
-        if(player.getGroup()==GroupType.BLUE&&piece.getRow()==9&&piece.getCol()==4) return false;
+        if(player.getGroup()==GroupType.RED&&piece.getRow()==1&&piece.getCol()==4)
+        {
+            System.out.println("Can not move to your won Den.");return false;
+        }
+        if(player.getGroup()==GroupType.BLUE&&piece.getRow()==9&&piece.getCol()==4)
+        {
+            System.out.println("Can not move to your won Den.");return false;
+        }
         //check whether the piece can eat another piece
         if(player.getGroup()==player1.getGroup())
         {
@@ -130,7 +174,10 @@ public class GameKBL extends KeyboardListener{
                 if(player2.pieces[i].alive&&
                         player2.pieces[i].getRow()==row&&player2.pieces[i].getCol()==col)
                 {
-                    if(piece.compareTo(player2.pieces[i])<0) return false;
+                    if(piece.compareTo(player2.pieces[i])<0)
+                    {
+                        System.out.println("Can not eat this piece.");return false;
+                    }
                 }
             }
         }
@@ -141,7 +188,10 @@ public class GameKBL extends KeyboardListener{
                 if(player1.pieces[i].alive&&
                         player1.pieces[i].getRow()==row&&player1.pieces[i].getCol()==col)
                 {
-                    if(piece.compareTo(player1.pieces[i])<0) return false;
+                    if(piece.compareTo(player1.pieces[i])<0)
+                    {
+                        System.out.println("Can not eat this piece.");return false;
+                    }
                 }
             }
         }
