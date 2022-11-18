@@ -40,6 +40,7 @@ public class GameKBL extends KeyboardListener{
     /**
      * check whether the format of user input is valid or invalid
      * @param command command to be checked
+     * @param player the player taking movement
      * @return check result
      *
      */

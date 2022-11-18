@@ -7,6 +7,7 @@ import Jungle.Model.Player;
 
 public class Main {
 
+    //Jungle Game can be triggered here
     public static void main(String[] args) {
         Player P1 = new Player("Alice", GroupType.RED);
         Player P2 = new Player("Bob",GroupType.BLUE);
