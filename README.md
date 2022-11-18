@@ -7,16 +7,20 @@
 if you never install Jungle_Gp36
 
 ```
-git clone https://github.com/LI-Yiquan/Jungle_Gp36.git && cd Jungle_Gp36/src && sh BuildGame
+~$ git clone https://github.com/LI-Yiquan/Jungle_Gp36.git && cd Jungle_Gp36/src && sh BuildGame
 ```
 if you have already installed Jungle_Gp36
 ```
-yes | rm -r Jungle_Gp36 && git clone https://github.com/LI-Yiquan/Jungle_Gp36.git && cd Jungle_Gp36/src && sh BuildGame
+~$ yes | rm -r Jungle_Gp36 && git clone https://github.com/LI-Yiquan/Jungle_Gp36.git && cd Jungle_Gp36/src && sh BuildGame
 ```
 #### Play for the second time
 
 ```
-sh StartGame
+~/Jungle_Gp36/src$ sh StartGame
+```
+#### Delete game after use 
+```
+~/Jungle_Gp36/src$ sh DeleteGame
 ```
 
 ### User Manual 
