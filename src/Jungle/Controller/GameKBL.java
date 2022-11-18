@@ -299,8 +299,7 @@ public class GameKBL extends KeyboardListener{
             case "Wolf": piece = player.pieces[4]; break;
             case "Dog": piece = player.pieces[5]; break;
             case "Cat": piece = player.pieces[6]; break;
-            case "Rat": piece = player.pieces[7]; break;
-            default: piece = player.pieces[0];
+            default: piece = player.pieces[7];
         }
         try{
         switch (tmp[1]) {

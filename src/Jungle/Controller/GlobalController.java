@@ -42,13 +42,9 @@ public class GlobalController {
             case 2:
                 onGame(turn);
                 break;
-            case 3:
-                onQuit();
-                break;
             default:
                 onQuit();
         }
-        //scan.close();
     }
 
     /**

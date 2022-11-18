@@ -5,12 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import Jungle.Model.*;
 import org.junit.Test;
 
-import Jungle.Controller.*;
-
 import static org.junit.Assert.assertEquals;
-
-
-import java.lang.Exception;
 
 public class PieceTest {
      /**
@@ -153,48 +148,11 @@ public class PieceTest {
    }
 
     /**
-     * Test the function of eating out of order in the trap 
-     * we let the tiger and the cat in the same trap and check the outcome of the project
-     * The outcome will be "Have no permission to eat the animal in trap!" if the project works well
-     */
-    @Test
-    public void PieceTest_inTrap()
-    {
-        Player P1 = new Player("Alice", GroupType.RED);
-        Player P2 = new Player("Bob",GroupType.BLUE);
-        Piece Cat= new Piece(1,1, PieceType.Cat,3, GroupType.RED);
-        Piece Tiger= new Piece(2,2,PieceType.Tiger, 5, GroupType.RED);
-        GameKBL KBL= new GameKBL(P1, P2,null);
-    }
-
-    /**
-     * Test the function of eating out of order in the Den
-     */
-    @Test
-    public void PieceTest_inDen() {
-        Player P1 = new Player("Alice", GroupType.RED);
-        Player P2 = new Player("Bob", GroupType.BLUE);
-        Piece Cat = new Piece(1, 1, PieceType.Cat, 3, GroupType.RED);
-        Piece Tiger = new Piece(2, 2, PieceType.Tiger, 5, GroupType.RED);
-        GameKBL KBL = new GameKBL(P1,P2, null);
-
-        try {
-
-
-        } catch (Exception e) {
-            assertEquals("Have no permission to eat the animal in trap!", e.getMessage());
-        }
-    }
-
-
-    /**
      * Test the function of InRiver
      * Test whether the animal is in the river and whether it can live in the river
      */
     @Test
     public void PieceTest_inRiver() {
-        Player P1 = new Player("Alice", GroupType.RED);
-        Player P2 = new Player("Bob", GroupType.BLUE);
         Location RiverLocation = new Location(LocationType.RIVER, GroupType.RED, 4, 2);
         assertEquals(RiverLocation.getLocationType(), LocationType.RIVER);
         assertNotEquals(RiverLocation.getLocationType(), LocationType.TRAP);
