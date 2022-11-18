@@ -56,12 +56,4 @@ public class GameRule implements Page {
 
     }
 
-    /**
-     * Print the quit message to players.
-     * such as "One of the player has quited the game. Thank you for your playing."
-     */
-    public void printToQuit(){
-        System.out.println("One of the player has quited the game. Thank you for your playing.");
-    }
-
 }

@@ -2,8 +2,7 @@ package Jungle.View;
 import Jungle.Model.Board;
 import Jungle.Model.*;
 
-public class Map implements Page{
-
+public class Map {
 
     public static void main(String[] args)
     {
@@ -15,8 +14,6 @@ public class Map implements Page{
     }
     /** current game board */
     private Board gameBoard;
-    /** the Game Rule page for the game board */
-    private GameRule ruleInMap;
 
     /**
      * Get the game board
@@ -25,7 +22,6 @@ public class Map implements Page{
     public Board getGameBoard() {
         return gameBoard;
     }
-
 
     /**
      * Print the chessboard
@@ -347,18 +343,5 @@ public class Map implements Page{
         }
         System.out.println();
         System.out.println("- - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
-    }
-    /**
-     * Print the content of game rule
-     */
-    public void printRule(){
-        ruleInMap.printRule();
-    }
-
-    /**
-     * Print the quit message
-     */
-    public void printToQuit(){
-        System.out.println("Player quited the game. Thank you for your playing.");
     }
 }

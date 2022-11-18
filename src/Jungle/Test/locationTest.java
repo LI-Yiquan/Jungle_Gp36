@@ -127,7 +127,7 @@ public class locationTest {
 
     //Test for the location of the River
     @Test
-    void locationRiverTest()
+    void locatonRiverTest()
     {
       //Test whether the river is in the right position
       //The outcome will be true if the project is follow our expectation

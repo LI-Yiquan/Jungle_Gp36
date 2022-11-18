@@ -74,11 +74,4 @@ public class WelcomePage implements Page{
             System.out.println(ruleInWelcome.getRule()[line]);
         }  
     }
-    /**
-     * print the Quit message
-     */
-    public void printToQuit(){
-        System.out.println("One of the player has quited the game. Thank you for your playing.");
-    }
-
 }
