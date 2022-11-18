@@ -12,7 +12,7 @@ public class Main {
         Player P2 = new Player("Bob",GroupType.BLUE);
         Board board = new Board();
         GlobalController globalController = new GlobalController(P1,P2,board);
-        globalController.startGlobalController();
+        globalController.startGlobalController(0);
     }
 }
 

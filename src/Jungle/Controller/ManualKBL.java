@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class ManualKBL extends KeyboardListener{
 
-    public void listen(Player p1, Player p2, Board board)
+    public void listen(Player p1, Player p2, Board board, int turn)
     {
         String input;
         Scanner scan = new Scanner(System.in);
@@ -24,11 +24,11 @@ public class ManualKBL extends KeyboardListener{
         switch (input){
             case "Back":
                 GlobalController globalController = new GlobalController(p1,p2,board);
-                globalController.startGlobalController();
+                globalController.startGlobalController(turn);
                 break;
             case "Game":
                 GameController gameController = new GameController(p1,p2,board);
-                gameController.startGameController();
+                gameController.startGameController(turn);
                 break;
         }
 

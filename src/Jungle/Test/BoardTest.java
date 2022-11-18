@@ -41,10 +41,5 @@ public class BoardTest {
         assertEquals(2, gameboard.board[7][2].getCol());
         assertEquals(3, gameboard.board[7][3].getCol());
         assertEquals(4, gameboard.board[7][4].getCol());
-
-
-
     }
-
-
 }

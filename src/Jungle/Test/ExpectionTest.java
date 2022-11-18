@@ -14,7 +14,7 @@ public class ExpectionTest {
     //Test whether the function WrongPieceLocation() can throw and print the corresponding exception correctly.
     public void WrongPieceLocationTest() {
         WrongCheck e=new WrongCheck();
-        Exception exception = assertThrows(ArithmeticException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
               e.WrongPieceLocation();
         });
     
@@ -28,7 +28,7 @@ public class ExpectionTest {
     //Test whether the function WrongOrder_of_eating() can throw and print the corresponding exception correctly.
     public void WrongOrder_of_eatingTest() {
         WrongCheck e=new WrongCheck();
-        Exception exception = assertThrows(ArithmeticException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
               e.WrongOrder_of_eating();
         });
     
@@ -42,7 +42,7 @@ public class ExpectionTest {
     //Test whether the function WrongEating_Intra() can throw and print the corresponding exception correctly.
     public void WrongEating_IntraTest() {
         WrongCheck e=new WrongCheck();
-        Exception exception = assertThrows(ArithmeticException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
               e.WrongEating_Intrap();
         });
     
@@ -56,7 +56,7 @@ public class ExpectionTest {
     //Test whether the function WrongMoving_InDen() can throw and print the corresponding exception correctly.
     public void WrongMoving_InDenTest() {
         WrongCheck e=new WrongCheck();
-        Exception exception = assertThrows(ArithmeticException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
               e.WrongMoving_InDen();
         });
     
@@ -70,7 +70,7 @@ public class ExpectionTest {
     //Test whether the function WrongJump_AcrossRiver() can throw and print the corresponding exception correctly.
     public void WrongJump_AcrossRiverTest() {
         WrongCheck e=new WrongCheck();
-        Exception exception = assertThrows(ArithmeticException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
               e.WrongJump_AcrossRiver();
         });
     
@@ -84,7 +84,7 @@ public class ExpectionTest {
     //Test whether the function Wrong_InRiver() can throw and print the corresponding exception correctly.
     public void Wrong_InRiverTest() {
         WrongCheck e=new WrongCheck();
-        Exception exception = assertThrows(ArithmeticException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
               e.Wrong_InRiver();
         });
     
@@ -98,7 +98,7 @@ public class ExpectionTest {
     //Test whether the function Wrong_Winner() can throw and print the corresponding exception correctly.
     public void Wrong_Winner() {
         WrongCheck e=new WrongCheck();
-        Exception exception = assertThrows(ArithmeticException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
               e.Wrong_Winner();
         });
     

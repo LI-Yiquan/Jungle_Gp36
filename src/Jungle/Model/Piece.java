@@ -23,11 +23,11 @@ public class Piece implements Comparable<Piece> {
 
 	//Add a constructor
 	public Piece(int row, int col, PieceType type, int rank, GroupType groupType){
-		setRow(row);
-		setCol(col);
-		setRank(rank);
-		setGroup(groupType);
-		setPieceType(type);
+		this.row=row;
+		this.col=col;
+		this.rank=rank;
+		this.groupType=groupType;
+		this.type = type;
 		this.alive=true;
 	}
 
@@ -54,10 +54,6 @@ public class Piece implements Comparable<Piece> {
 		return groupType;
 	}
 
-	public void setGroup(GroupType group) {
-         this.groupType=group;
-	}
-
 	// Add this method
 	public void setRank(int rank){
 		this.rank=rank;
@@ -66,19 +62,11 @@ public class Piece implements Comparable<Piece> {
 
 	// Add this method
 	public int getRank(){
-
 		return rank;
 	}
-    
 	// Add this method
 	public PieceType getPieceType(){
-
 		return this.type;
-	}
-
-    // Add this method
-	public void setPieceType(PieceType type){
-        this.type = type;
 	}
 
 	public void remove()
@@ -92,8 +80,6 @@ public class Piece implements Comparable<Piece> {
 		if(this.rank==1&&this.inRiver&&!piece.inRiver) return -1;
 
 		if(this.rank==1&&!this.inRiver&&piece.inRiver) return -1;
-
-		//if(this.inTrap) return -1;
 
 		if(piece.inTrap) return 1;
 

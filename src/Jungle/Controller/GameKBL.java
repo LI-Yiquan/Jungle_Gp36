@@ -336,11 +336,11 @@ public class GameKBL extends KeyboardListener{
         }
         if(command.equals("Manual"))
         {
-            System.out.println("Manual!");
             GameRule a=new GameRule();
             a.printRule();
             ManualKBL manualKBL = new ManualKBL();
-            manualKBL.listen(player1,player2,board);
+            if(player.getGroup()==player1.getGroup()) manualKBL.listen(player1,player2,board,0);
+            else manualKBL.listen(player1,player2,board,1);
             return;
         }
         String[] tmp;

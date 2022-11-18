@@ -101,22 +101,7 @@ public class PieceTest {
         assertFalse(elephant1.getCol()>=1 &&  elephant1.getCol()<=7);
         elephant1.setCol(7);
     }
-      
-    // Test setGroup() in Piece class. Check whther this function can set value to group attribute correctly for each Piece object.
-    @Test
-    public void setGroupTest1(){
-        elephant2.setGroup(GroupType.RED);
-        assertEquals(GroupType.RED,elephant2.getGroup());
-        elephant2.setGroup(GroupType.BLUE);
-        assertEquals(GroupType.BLUE,elephant2.getGroup());
-    }
-    @Test
-    public void setGroupTest2(){
-        rat2.setGroup(GroupType.BLUE);
-        assertEquals(GroupType.BLUE,rat2.getGroup());
-        rat2.setGroup(GroupType.RED);
-        assertEquals(GroupType.RED,rat2.getGroup());
-    }
+
     
     // Test whether the range of group attribute is correct. It should be either "BLUE" oe "RED".
     @Test 
@@ -126,12 +111,8 @@ public class PieceTest {
     }
     @Test
     public void grouprangeTest2(){
-        elephant1.setGroup(GroupType.BLUE);
         assertNotSame(elephant1.getGroup(), GroupType.RED);
-        rat2.setGroup(GroupType.RED);
         assertNotSame(rat2.getGroup(), GroupType.BLUE);
-        elephant1.setGroup(GroupType.BLUE);
-        rat2.setGroup(GroupType.RED);
      }
 
    
@@ -144,22 +125,6 @@ public class PieceTest {
     public void getPieceTypeTest2(){
         assertEquals(PieceType.Rat,rat2.getPieceType());
     }
-    
-    // Test setName() in Piece class. Check whther this function can set value to name attribute correctly for each Piece object.
-    @Test
-    public void setPieceTypeTest1(){
-        elephant2.setPieceType(PieceType.Rat);
-        assertEquals(PieceType.Rat,elephant2.getPieceType());
-        elephant2.setPieceType(PieceType.Elephant);
-        assertEquals(PieceType.Elephant,elephant2.getPieceType());
-    }
-    @Test
-    public void setPieceTypeTest2(){
-        rat2.setPieceType(PieceType.Dog);
-        assertEquals(PieceType.Dog,rat2.getPieceType());
-        rat2.setPieceType(PieceType.Rat);
-        assertEquals(PieceType.Rat,rat2.getPieceType());
-    }
 
    // Test getRank() in Piece class. Check whther this function can return correct value of rank attribute for each Piece object.
    @Test
@@ -168,22 +133,6 @@ public class PieceTest {
    }
    @Test
    public void getRankTest2(){
-       assertEquals(1,rat2.getRank());
-   }
-   
-   // Test setRank() in Piece class. Check whther this function can set value to rank attribute correctly for each Piece object.
-   @Test
-   public void setRankTest1(){
-       elephant2.setRank(3);
-       assertEquals(3,elephant2.getRank());
-       elephant2.setRank(8);
-       assertEquals(8,elephant2.getRank());
-   }
-   @Test
-   public void setRankTest2(){
-       rat2.setRank(2);
-       assertEquals(2,rat2.getRank());
-       rat2.setRank(1);
        assertEquals(1,rat2.getRank());
    }
 
@@ -275,11 +224,11 @@ public class PieceTest {
     @Test
     public void PieceTest_Compare()
     {
-        Piece Rat = new Piece(3, 2, PieceType.Rat, 0, GroupType.RED);
+        Piece Rat = new Piece(3, 2, PieceType.Rat, 1, GroupType.RED);
         Piece Wolf = new Piece(4, 2, PieceType.Wolf, 3, GroupType.BLUE);
         Piece Elephant = new Piece(7, 2, PieceType.Wolf, 8, GroupType.RED);
-        //assert(3, Wolf.compareTo(Rat));
-        //assertEquals(5, Elephant.compareTo(Wolf));
+        assertTrue(Elephant.compareTo(Wolf)>0);
+        assertTrue(Elephant.compareTo(Rat)<=0);
     }
 
 

@@ -29,7 +29,7 @@ public class GlobalController {
      *
      *
      */
-    public void startGlobalController()
+    public void startGlobalController(int turn)
     {
         int MODE;
         WelcomeKBL welcomeKBL = new WelcomeKBL();
@@ -37,10 +37,10 @@ public class GlobalController {
         MODE = welcomeKBL.listen();
         switch(MODE){
             case 1:
-                onManual();
+                onManual(turn);
                 break;
             case 2:
-                onGame();
+                onGame(turn);
                 break;
             case 3:
                 onQuit();
@@ -68,13 +68,13 @@ public class GlobalController {
      * the ManualKBL class in the Controller part.
      *
      */
-    public void onManual()
+    public void onManual(int turn)
     {
         //show manual
         GameRule a=new GameRule();
         a.printRule();
         ManualKBL manualKBL = new ManualKBL();
-        manualKBL.listen(P1,P2,board);
+        manualKBL.listen(P1,P2,board,turn);
     }
 
     /**
@@ -84,12 +84,12 @@ public class GlobalController {
      * View part to display the game map for the users.
      *
      */
-    public void onGame()
+    public void onGame(int turn)
     {
         //start game
         System.out.println("Game!");
         GameController gameController = new GameController(P1, P2, board);
-        gameController.startGameController();
+        gameController.startGameController(turn);
     }
 
     /**

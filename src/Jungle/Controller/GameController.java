@@ -25,10 +25,9 @@ public class GameController {
      * only when one of the players quit or one player wins the game will the while loop be broken.
      *
      */
-    public void startGameController()
+    public void startGameController(int turn)
     {
         gameKBL = new GameKBL(P1,P2,board);
-        int turn = 0;
         boolean LOCK = true;
         Map map = new Map();
         map.printBoard(board,P1,P2);
