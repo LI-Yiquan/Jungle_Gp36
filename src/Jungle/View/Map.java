@@ -451,48 +451,7 @@ public class Map implements Page{
     public void printToQuit(){
         System.out.println("Player quited the game. Thank you for your playing.");
     }
-    
-    /**
-     * Print the game result
-     */
-    public void printResult(){
-        
-    }
-    
-    /**
-     * Print the user prompt such as "Player [Player_name] enters the next step:"
-     * @param player
-     */
-    public void printPlayerPrompt(Player player){
-        if(player.getGroup()==GroupType.RED){
-            System.out.println("Player [Alice] enter the next step:\n"+"You have"+Integer.toString(player.PieceNum)+" piece(s) now\n");
-        }
-        else{
-            System.out.println("Player [Bob] enter the next step:\n"+"You have"+Integer.toString(player.PieceNum)+" piece(s) now\n");
-        }
-    }
-    
-    /**
-     * Scan the player's input string and return the input
-     * @return player's input
-     */
-    public String scanPlayerInput(){
-        String input=null;
 
-        return input;
-    }
-   
-    /**
-     * Preliminary check whether the input is valid (only check the format of the input, not the logic)
-     * Returns an array of processed strings if the input passes preliminary checks.
-     * If the check fails, print a prompt statement.
-     * @return processed player input
-     */
-    public String[] processPlayerInput(){
-           String[] processedInput=null;
-           
-           return processedInput;
-    }
 
 
 }
