@@ -32,7 +32,10 @@ public class GameKBL extends KeyboardListener{
         while(!check(input,player))
         {
             System.out.println("Wrong command, please try again. Input 'Manual' to check rules.");
-            System.out.print("("+player.getName()+")"+"Game====>");
+            if(player.getGroup()==GroupType.RED)
+                System.out.print("(\033[31;4mAlice\033[0m)"+"Game====>");
+            else
+                System.out.print("(\033[34;4mBob\033[0m)"+"Game====>");
             input = scan.nextLine();
         }
         move(input,player);
@@ -115,39 +118,82 @@ public class GameKBL extends KeyboardListener{
                 {
                     System.out.println("Out of bound.");return false;
                 }
+                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion)
+                {
+                    if(piece.getRow()==4||piece.getRow()==5||piece.getRow()==6)
+                    {
+                        col = piece.getCol() - 3;
+                    }
+                    else col = piece.getCol() - 1;
+                }
+                else col = piece.getCol() - 1;
                 row=piece.getRow();
-                col=piece.getCol()-1;
-                if(checkConflict(row,col,player)) return false;
+                if(checkConflict(row,col,player,piece)) return false;
                 if(checkRiver(row,col,piece))
                 {
                     System.out.println("This piece can not across/in the river.");return false;
                 }
                 break;
             case "s":
-                if((piece.getRow() - 1)<1) return false;
-                row=piece.getRow()-1;
+                if((piece.getRow() - 1)<1)
+                {
+                    System.out.println("Out of bound.");return false;
+                }
+                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion)
+                {
+                    if(piece.getRow()==7&&(piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||
+                            piece.getCol()==6))
+                    {
+                        row = piece.getRow() - 4;
+                    }
+                    else row = piece.getRow() - 1;
+                }
+                else row=piece.getRow() - 1;
                 col=piece.getCol();
-                if(checkConflict(row,col,player)) return false;
+                if(checkConflict(row,col,player,piece)) return false;
                 if(checkRiver(row,col,piece))
                 {
                     System.out.println("This piece can not across/in the river.");return false;
                 }
                 break;
             case "w":
-                if((piece.getRow() + 1)>9) return false;
-                row=piece.getRow()+1;
+                if((piece.getRow() + 1)>9)
+                {
+                    System.out.println("Out of bound.");return false;
+                }
+                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion)
+                {
+                    if(piece.getRow()==3&&(piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||
+                            piece.getCol()==6))
+                    {
+                        row = piece.getRow() + 4;
+                    }
+                    else row = piece.getRow() + 1;
+                }
+                else row = piece.getRow() + 1;
                 col=piece.getCol();
-                if(checkConflict(row,col,player)) return false;
+                if(checkConflict(row,col,player,piece)) return false;
                 if(checkRiver(row,col,piece))
                 {
                     System.out.println("This piece can not across/in the river.");return false;
                 }
                 break;
             case "d":
-                if((piece.getCol() + 1)>7) return false;
+                if((piece.getCol() + 1)>7)
+                {
+                    System.out.println("Out of bound.");return false;
+                }
+                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion)
+                {
+                    if(piece.getRow()==4||piece.getRow()==5||piece.getRow()==6)
+                    {
+                        col = piece.getCol() + 3;
+                    }
+                    else col = piece.getCol() + 1;
+                }
+                else col = piece.getCol() + 1;
                 row=piece.getRow();
-                col=piece.getCol()+1;
-                if(checkConflict(row,col,player)) return false;
+                if(checkConflict(row,col,player,piece)) return false;
                 if(checkRiver(row,col,piece))
                 {
                     System.out.println("This piece can not across/in the river.");return false;
@@ -156,11 +202,11 @@ public class GameKBL extends KeyboardListener{
             default: return false;
         }
 
-        if(player.getGroup()==GroupType.RED&&piece.getRow()==1&&piece.getCol()==4)
+        if(player.getGroup()==GroupType.RED&&row==1&&col==4)
         {
             System.out.println("Can not move to your won Den.");return false;
         }
-        if(player.getGroup()==GroupType.BLUE&&piece.getRow()==9&&piece.getCol()==4)
+        if(player.getGroup()==GroupType.BLUE&&row==9&&col==4)
         {
             System.out.println("Can not move to your won Den.");return false;
         }
@@ -196,7 +242,7 @@ public class GameKBL extends KeyboardListener{
         return true;
     }
 
-    public boolean checkConflict(int row, int col, Player player)
+    public boolean checkConflict(int row, int col, Player player, Piece piece)
     {
         for(int i=0;i<8;i++)
         {
@@ -224,8 +270,8 @@ public class GameKBL extends KeyboardListener{
     public void move(String command, Player player) {
         if(command.equals("Quit"))
         {
-            if(player.getGroup()==player1.getGroup()) player2.PieceNum=0;
-            else player1.PieceNum=0;
+            if(player.getGroup()==player1.getGroup()) player1.PieceNum=0;
+            else player2.PieceNum=0;
             return;
         }
         if(command.equals("Manual"))
