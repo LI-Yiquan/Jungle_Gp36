@@ -91,21 +91,21 @@ public class GameKBL extends KeyboardListener{
             case "Dog":
                 if (!player.pieces[5].alive)
                 {
-                    System.out.println("Dog is not alive");return false;
+                    System.out.println("Dog is not alive.");return false;
                 }
                 piece = player.pieces[5];
                 break;
             case "Cat":
                 if (!player.pieces[6].alive)
                 {
-                    System.out.println("Cat is not alive");return false;
+                    System.out.println("Cat is not alive.");return false;
                 }
                 piece = player.pieces[6];
                 break;
             case "Rat":
                 if (!player.pieces[7].alive)
                 {
-                    System.out.println("Rat is not alive");return false;
+                    System.out.println("Rat is not alive.");return false;
                 }
                 piece = player.pieces[7];
                 break;
@@ -147,7 +147,7 @@ public class GameKBL extends KeyboardListener{
                 if(checkConflict(row,col,player,piece)) return false;
                 if(checkRiver(row,col,piece))
                 {
-                    System.out.println("This piece can not across/in the river.");return false;
+                    System.out.println("This piece can not move across/in the river.");return false;
                 }
                 break;
             case "s":

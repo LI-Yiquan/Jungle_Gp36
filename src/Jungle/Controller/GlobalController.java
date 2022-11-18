@@ -71,7 +71,6 @@ public class GlobalController {
     public void onManual()
     {
         //show manual
-        System.out.println("Manual!");
         GameRule a=new GameRule();
         a.printRule();
         ManualKBL manualKBL = new ManualKBL();
@@ -100,7 +99,7 @@ public class GlobalController {
     public void onQuit()
     {
         //quit the game
-        System.out.println("Quit!");
+        System.out.println("BYE!");
     }
 
 }

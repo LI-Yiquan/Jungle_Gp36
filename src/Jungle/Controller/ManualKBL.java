@@ -18,7 +18,6 @@ public class ManualKBL extends KeyboardListener{
         while(!check(input))
         {
             System.out.println("Wrong command, please try again.");
-            System.out.println();
             System.out.print("Manual====>");
             input = scan.nextLine();
         }
