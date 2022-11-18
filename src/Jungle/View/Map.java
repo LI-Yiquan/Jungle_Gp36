@@ -25,13 +25,7 @@ public class Map implements Page{
     private GameRule ruleInMap;
 
     private Player P1,P2;
-    /**
-     * Set the game board
-     * @param gameBoard
-     */
-    public void setGameBoard(Board gameBoard) {
-
-    }
+    
     
     /**
      * Get the game board
