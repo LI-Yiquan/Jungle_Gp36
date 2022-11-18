@@ -25,13 +25,7 @@ public class Map implements Page{
     private GameRule ruleInMap;
 
     private Player P1,P2;
-    /**
-     * Set the game board
-     * @param gameBoard
-     */
-    public void setGameBoard(Board gameBoard) {
-
-    }
+    
     
     /**
      * Get the game board
@@ -65,14 +59,14 @@ public class Map implements Page{
      * "u","d","l","r" means move up , down, left, right seperately
      * user's input should follow the format of "pieceName direction"
      * (4 directions: "w","s","a","d")
-     * Two adjacent elements are separated by ','.
+     * Two adjacent elements are separated by ' '.
      * @param inputRequirement
      */
     public void setInputRequirement(String inputRequirement) {
         inputRequirement ="Please input the piece name you want to move and the movement\n"+
                 "The movement is consist 4 directions\n"+
                 "Directions: [Up: w,  Down: s, Left: a, Right:d]"+
-                "The input format should be [Piece Name,Direction]. For example,(Lion,w),(Rat,s).";
+                "The input format should be [Piece Name Direction]. For example,(Lion w),(Rat s).";
     }
     
     /**
