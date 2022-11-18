@@ -122,6 +122,22 @@ public class GameKBL extends KeyboardListener{
                 {
                     if(piece.getRow()==4||piece.getRow()==5||piece.getRow()==6)
                     {
+                        if(player1.pieces[7].alive&&player1.pieces[7].getRow()==piece.getRow())
+                        {
+                            if((piece.getCol()==4&&(player1.pieces[7].getCol()==2||player1.pieces[7].getCol()==3))||
+                                    (piece.getCol()==7&&(player1.pieces[7].getCol()==5||player1.pieces[7].getCol()==6)))
+                            {
+                                System.out.println("Rat in the river, cannot jump.");return false;
+                            }
+                        }
+                        if(player2.pieces[7].alive&&player2.pieces[7].getRow()==piece.getRow())
+                        {
+                            if((piece.getCol()==4&&(player2.pieces[7].getCol()==2||player2.pieces[7].getCol()==3))||
+                                    (piece.getCol()==7&&(player2.pieces[7].getCol()==5||player2.pieces[7].getCol()==6)))
+                            {
+                                System.out.println("Rat in the river, cannot jump.");return false;
+                            }
+                        }
                         col = piece.getCol() - 3;
                     }
                     else col = piece.getCol() - 1;
@@ -144,6 +160,20 @@ public class GameKBL extends KeyboardListener{
                     if(piece.getRow()==7&&(piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||
                             piece.getCol()==6))
                     {
+                        if(player1.pieces[7].alive&&player1.pieces[7].getCol()==piece.getCol())
+                        {
+                            if(player1.pieces[7].getCol()==4||player1.pieces[7].getCol()==5||player1.pieces[7].getCol()==6)
+                            {
+                                System.out.println("Rat in the river, cannot jump.");return false;
+                            }
+                        }
+                        if(player2.pieces[7].alive&&player2.pieces[7].getCol()==piece.getCol())
+                        {
+                            if(player2.pieces[7].getCol()==4||player2.pieces[7].getCol()==5||player2.pieces[7].getCol()==6)
+                            {
+                                System.out.println("Rat in the river, cannot jump.");return false;
+                            }
+                        }
                         row = piece.getRow() - 4;
                     }
                     else row = piece.getRow() - 1;
@@ -166,6 +196,20 @@ public class GameKBL extends KeyboardListener{
                     if(piece.getRow()==3&&(piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||
                             piece.getCol()==6))
                     {
+                        if(player1.pieces[7].alive&&player1.pieces[7].getCol()==piece.getCol())
+                        {
+                            if(player1.pieces[7].getCol()==4||player1.pieces[7].getCol()==5||player1.pieces[7].getCol()==6)
+                            {
+                                System.out.println("Rat in the river, cannot jump.");return false;
+                            }
+                        }
+                        if(player2.pieces[7].alive&&player2.pieces[7].getCol()==piece.getCol())
+                        {
+                            if(player2.pieces[7].getCol()==4||player2.pieces[7].getCol()==5||player2.pieces[7].getCol()==6)
+                            {
+                                System.out.println("Rat in the river, cannot jump.");return false;
+                            }
+                        }
                         row = piece.getRow() + 4;
                     }
                     else row = piece.getRow() + 1;
@@ -187,6 +231,22 @@ public class GameKBL extends KeyboardListener{
                 {
                     if(piece.getRow()==4||piece.getRow()==5||piece.getRow()==6)
                     {
+                        if(player1.pieces[7].alive&&player1.pieces[7].getRow()==piece.getRow())
+                        {
+                            if((piece.getCol()==1&&(player1.pieces[7].getCol()==2||player1.pieces[7].getCol()==3))||
+                                    (piece.getCol()==4&&(player1.pieces[7].getCol()==5||player1.pieces[7].getCol()==6)))
+                            {
+                                System.out.println("Rat in the river, cannot jump.");return false;
+                            }
+                        }
+                        if(player2.pieces[7].alive&&player2.pieces[7].getRow()==piece.getRow())
+                        {
+                            if((piece.getCol()==1&&(player2.pieces[7].getCol()==2||player2.pieces[7].getCol()==3))||
+                                    (piece.getCol()==4&&(player2.pieces[7].getCol()==5||player2.pieces[7].getCol()==6)))
+                            {
+                                System.out.println("Rat in the river, cannot jump.");return false;
+                            }
+                        }
                         col = piece.getCol() + 3;
                     }
                     else col = piece.getCol() + 1;
