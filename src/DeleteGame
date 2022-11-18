@@ -1,0 +1,2 @@
+#!/bin/bash
+cd .. && cd .. && yes | rm -r Jungle_Gp36
