@@ -31,5 +31,5 @@ input Quit: quit the system.
 
 #### in game page
 input PieceName Direction: move Piece forward to the direction.  
-Direction: w s a d for Up Down Left Right
+Direction: w s a d for Up Down Left Right  
 eg. Cat w: move cat to the upper land.  
