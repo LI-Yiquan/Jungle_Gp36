@@ -25,11 +25,11 @@ if you have already installed Jungle_Gp36
 
 ### User Manual 
 #### in welcome page
-input "Manual": check user manual.  
-input "Game": start Jungle.  
-input "Quit": quit the system.  
+input Manual: check user manual.  
+input Game: start Jungle.  
+input Quit: quit the system.  
 
 #### in game page
-input "Piece direction": move Piece forward to the direction.  
-direction: w a s d  
-eg. "Cat w": move cat to the upper land.  
+input PieceName Direction: move Piece forward to the direction.  
+Direction: w s a d for Up Down Left Right
+eg. Cat w: move cat to the upper land.  
