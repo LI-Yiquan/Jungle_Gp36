@@ -2,8 +2,6 @@ package Jungle.View;
 import Jungle.Model.Board;
 import Jungle.Model.*;
 
-
-
 public class Map implements Page{
 
 
@@ -17,16 +15,9 @@ public class Map implements Page{
     }
     /** current game board */
     private Board gameBoard;
-    /** the game informations of players */
-    private String gameInfo;
-    /** tell players the standard format of their input */
-    private String inputRequirement;
     /** the Game Rule page for the game board */
     private GameRule ruleInMap;
 
-    private Player P1,P2;
-    
-    
     /**
      * Get the game board
      * @return the current board
@@ -35,71 +26,12 @@ public class Map implements Page{
         return gameBoard;
     }
 
-    /**
-     * Set the game information, such as what is the last step, the mumber of pieces of player 1 and 2
-     * @param gameInfo
-     */
-    public void setGameInfo(String gameInfo) {
-        String p1_info = P1.getName()+" has "+Integer.toString(P1.PieceNum)+"pieces now.\n";
-        String p2_info = P2.getName()+" has "+Integer.toString(P2.PieceNum)+"pieces now.\n";
-        gameInfo = p1_info+p2_info;
-
-    }
-    
-    /**
-     * Get the game information, such as what is the last step, the mumber of pieces of player 1 and 2
-     * @return the game infoemation
-     */
-    public String getGameInfo() {
-        return gameInfo;
-    }
-    
-    /**
-     * Set the standard format of players' input 
-     * "u","d","l","r" means move up , down, left, right seperately
-     * user's input should follow the format of "pieceName direction"
-     * (4 directions: "w","s","a","d")
-     * Two adjacent elements are separated by ' '.
-     * @param inputRequirement
-     */
-    public void setInputRequirement(String inputRequirement) {
-        inputRequirement ="Please input the piece name you want to move and the movement\n"+
-                "The movement is consist 4 directions\n"+
-                "Directions: [Up: w,  Down: s, Left: a, Right:d]"+
-                "The input format should be [Piece Name Direction]. For example,(Lion w),(Rat s).";
-    }
-    
-    /**
-     * Get the standard format of players' input 
-     * @return the input reqirements
-     */
-    public String getInputRequirement() {
-        return inputRequirement;
-    }
-    
-    /**
-     * Set the GameRule page for map page
-     * @param ruleInMap
-     */
-    public void setRuleInMap(Page ruleInMap) {
-        ruleInMap = new GameRule();
-    }
-
-    /**
-     * Get the GameRule page for map page
-     * @return GameRule Page
-     */
-    public GameRule getRuleInMap() {
-        return ruleInMap;
-    }
 
     /**
      * Print the chessboard
      */
     public void printBoard(Board gameBoard, Player P1, Player P2){
         this.gameBoard=gameBoard;
-        this.P1 = P1;
-        this.P2 = P2;
         int lock = 0;
         int r = 1;
         int c = 1;
@@ -404,7 +336,6 @@ public class Map implements Page{
                                 }
                                 if(lock==0) System.out.print("****");
                                 break;
-
                         }
                         c++;
                     }
@@ -417,35 +348,17 @@ public class Map implements Page{
         System.out.println();
         System.out.println("- - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
     }
-
-    /**
-     * Print the game information to user
-     */
-    public void printGameInfo(){
-        System.out.print(getGameInfo());
-    }
-
-    /**
-     * Print the input requirements to user
-     */
-    public void printInputRequiement(){
-        System.out.print(getInputRequirement());
-    }
-    
     /**
      * Print the content of game rule
      */
     public void printRule(){
         ruleInMap.printRule();
     }
-    
+
     /**
      * Print the quit message
      */
     public void printToQuit(){
         System.out.println("Player quited the game. Thank you for your playing.");
     }
-
-
-
 }

@@ -8,9 +8,7 @@ public class GameController {
 
     public Player P1;
     public Player P2;
-
     public Board board;
-
     public GameKBL gameKBL;
 
     public GameController(Player p1,Player p2, Board board)
@@ -31,7 +29,6 @@ public class GameController {
         boolean LOCK = true;
         Map map = new Map();
         map.printBoard(board,P1,P2);
-
         while(LOCK)
         {
             if(turn==0) gameKBL.listen(P1);
@@ -67,7 +64,6 @@ public class GameController {
         {
             if(P1.pieces[i].inDen) return "P1";
             if(P2.pieces[i].inDen) return "P2";
-
         }
         return "continue";
     }

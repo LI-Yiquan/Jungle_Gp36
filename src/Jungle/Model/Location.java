@@ -1,8 +1,6 @@
 package Jungle.Model;
 
 
-import Jungle.Model.GroupType;
-
 /*
 In this model part, some components which are significant are listed as follows,
 like the class of Piece(animals),the class of location, 
@@ -34,11 +32,6 @@ public class Location {
 		setLocationType(l_type);
 	}
 
-
-
-
-
-
 	public int getRow() {
 		return row;
 	}
@@ -46,7 +39,6 @@ public class Location {
 	public void setRow(int row) {
 		this.row=row;
 	}
-
 
 	public int getCol() {
 		return col;
@@ -56,7 +48,6 @@ public class Location {
 		this.col=col;
 	}
 
-
 	public GroupType getGroup() {
 		return this.g_type;
 	}
@@ -65,16 +56,14 @@ public class Location {
 		this.g_type = groupType;
 	}
 
-
-
 	public void setLocationType(LocationType l_type)
 	{
 		this.l_type = l_type;
 	}
+
 	public LocationType getLocationType()
 	{
 		return this.l_type;
 	}
-
 
 }

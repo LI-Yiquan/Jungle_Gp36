@@ -4,6 +4,7 @@ import Jungle.Model.*;
 public class Player {
 
 	private String name;
+
 	private GroupType groupType;
 
 	public Piece[] pieces = new Piece[8];
@@ -14,7 +15,6 @@ public class Player {
 	{
 		setName(name);
 		setGroup(groupType);
-
 		switch(groupType){
 			case RED:
 				this.initP1();
@@ -68,6 +68,4 @@ public class Player {
 		Piece cat2 = new Piece(8,6,PieceType.Cat,2,GroupType.BLUE);pieces[6]=cat2;
 		Piece rat2 = new Piece(7,1,PieceType.Rat,1,GroupType.BLUE);pieces[7]=rat2;
 	}
-
-
 }

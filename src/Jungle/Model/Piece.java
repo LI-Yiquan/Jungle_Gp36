@@ -6,12 +6,11 @@ public class Piece implements Comparable<Piece> {
 	
 	private int col;
 	
-	private PieceType type;
-    
-	// add an attribute
+	private final PieceType type;
+
 	private int rank;
 
-	private GroupType groupType; //choose whether it is BLUE or RED
+	private final GroupType groupType; //choose whether it is BLUE or RED
 
 	public boolean alive;
 

@@ -2,22 +2,19 @@ package Jungle.Controller;
 
 import Jungle.Model.*;
 import Jungle.View.GameRule;
-import Jungle.View.Map;
-
 import java.util.Scanner;
 
 public class GameKBL extends KeyboardListener{
 
-
     public Player player1,player2;
 
-    public Board board;
+    public Board gameBoard;
 
     public GameKBL(Player player1,Player player2, Board board)
     {
         this.player1 = player1;
         this.player2 = player2;
-        this.board=board;
+        this.gameBoard=board;
     }
 
     public void listen(Player player)
@@ -55,8 +52,7 @@ public class GameKBL extends KeyboardListener{
         if(tmp.length!=2) return false;
         switch (tmp[0]) {
             case "Elephant":
-                if (!player.pieces[0].alive)
-                {
+                if (!player.pieces[0].alive) {
                     System.out.println("Elephant is not alive.");return false;
                 }
                 piece = player.pieces[0];
@@ -68,43 +64,37 @@ public class GameKBL extends KeyboardListener{
                 piece = player.pieces[1];
                 break;
             case "Tiger":
-                if (!player.pieces[2].alive)
-                {
+                if (!player.pieces[2].alive) {
                     System.out.println("Tiger is not alive.");return false;
                 }
                 piece = player.pieces[2];
                 break;
             case "Leopard":
-                if (!player.pieces[3].alive)
-                {
+                if (!player.pieces[3].alive) {
                     System.out.println("Leopard is not alive.");return false;
                 }
                 piece = player.pieces[3];
                 break;
             case "Wolf":
-                if (!player.pieces[4].alive)
-                {
+                if (!player.pieces[4].alive) {
                     System.out.println("Wolf is not alive.");return false;
                 }
                 piece = player.pieces[4];
                 break;
             case "Dog":
-                if (!player.pieces[5].alive)
-                {
+                if (!player.pieces[5].alive) {
                     System.out.println("Dog is not alive.");return false;
                 }
                 piece = player.pieces[5];
                 break;
             case "Cat":
-                if (!player.pieces[6].alive)
-                {
+                if (!player.pieces[6].alive) {
                     System.out.println("Cat is not alive.");return false;
                 }
                 piece = player.pieces[6];
                 break;
             case "Rat":
-                if (!player.pieces[7].alive)
-                {
+                if (!player.pieces[7].alive) {
                     System.out.println("Rat is not alive.");return false;
                 }
                 piece = player.pieces[7];
@@ -112,30 +102,23 @@ public class GameKBL extends KeyboardListener{
             default: return false;
         }
         int row,col;
+        Piece piecek;
         switch (tmp[1]) {
             case "a":
-                if((piece.getCol() - 1)<1)
-                {
+                if((piece.getCol() - 1)<1) {
                     System.out.println("Out of bound.");return false;
                 }
-                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion)
-                {
-                    if(piece.getRow()==4||piece.getRow()==5||piece.getRow()==6)
-                    {
-                        if(player1.pieces[7].alive&&player1.pieces[7].getRow()==piece.getRow())
-                        {
-                            if((piece.getCol()==4&&(player1.pieces[7].getCol()==2||player1.pieces[7].getCol()==3))||
-                                    (piece.getCol()==7&&(player1.pieces[7].getCol()==5||player1.pieces[7].getCol()==6)))
-                            {
-                                System.out.println("Rat in the river, cannot jump.");return false;
-                            }
-                        }
-                        if(player2.pieces[7].alive&&player2.pieces[7].getRow()==piece.getRow())
-                        {
-                            if((piece.getCol()==4&&(player2.pieces[7].getCol()==2||player2.pieces[7].getCol()==3))||
-                                    (piece.getCol()==7&&(player2.pieces[7].getCol()==5||player2.pieces[7].getCol()==6)))
-                            {
-                                System.out.println("Rat in the river, cannot jump.");return false;
+                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion) {
+                    //check whether lion or tiger can move across river
+                    if(piece.getRow()==4||piece.getRow()==5||piece.getRow()==6) {
+                        for(int i=0;i<2;i++) {
+                            if(i==0) piecek=player1.pieces[7];
+                            else piecek=player2.pieces[7];
+                            if(piecek.alive&&piecek.getRow()==piece.getRow()) {
+                                if((piece.getCol()==4&&(piecek.getCol()==2||piecek.getCol()==3))||
+                                        (piece.getCol()==7&&(piecek.getCol()==5||piecek.getCol()==6))) {
+                                    System.out.println("Rat in the river, cannot jump.");return false;
+                                }
                             }
                         }
                         col = piece.getCol() - 3;
@@ -144,34 +127,26 @@ public class GameKBL extends KeyboardListener{
                 }
                 else col = piece.getCol() - 1;
                 row=piece.getRow();
-                if(checkConflict(row,col,player,piece)) return false;
-                if(checkRiver(row,col,piece))
-                {
+                if(checkConflict(row,col,player)) return false;
+                if(checkRiver(row,col,piece)) {
                     System.out.println("This piece can not move across/in the river.");return false;
                 }
                 break;
             case "s":
-                if((piece.getRow() - 1)<1)
-                {
+                if((piece.getRow() - 1)<1) {
                     System.out.println("Out of bound.");return false;
                 }
-                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion)
-                {
+                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion) {
+                    //check whether lion or tiger can move across river
                     if(piece.getRow()==7&&(piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||
-                            piece.getCol()==6))
-                    {
-                        if(player1.pieces[7].alive&&player1.pieces[7].getCol()==piece.getCol())
-                        {
-                            if(player1.pieces[7].getRow()==4||player1.pieces[7].getRow()==5||player1.pieces[7].getRow()==6)
-                            {
-                                System.out.println("Rat in the river, cannot jump.");return false;
-                            }
-                        }
-                        if(player2.pieces[7].alive&&player2.pieces[7].getCol()==piece.getCol())
-                        {
-                            if(player2.pieces[7].getRow()==4||player2.pieces[7].getRow()==5||player2.pieces[7].getRow()==6)
-                            {
-                                System.out.println("Rat in the river, cannot jump.");return false;
+                            piece.getCol()==6)) {
+                        for(int i=0;i<2;i++) {
+                            if(i==0) piecek=player1.pieces[7];
+                            else piecek=player2.pieces[7];
+                            if(piecek.alive&&piecek.getCol()==piece.getCol()) {
+                                if(piecek.getRow()==4||piecek.getRow()==5||piecek.getRow()==6) {
+                                    System.out.println("Rat in the river, cannot jump.");return false;
+                                }
                             }
                         }
                         row = piece.getRow() - 4;
@@ -180,34 +155,26 @@ public class GameKBL extends KeyboardListener{
                 }
                 else row=piece.getRow() - 1;
                 col=piece.getCol();
-                if(checkConflict(row,col,player,piece)) return false;
-                if(checkRiver(row,col,piece))
-                {
+                if(checkConflict(row,col,player)) return false;
+                if(checkRiver(row,col,piece)) {
                     System.out.println("This piece can not across/in the river.");return false;
                 }
                 break;
             case "w":
-                if((piece.getRow() + 1)>9)
-                {
+                if((piece.getRow() + 1)>9) {
                     System.out.println("Out of bound.");return false;
                 }
-                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion)
-                {
+                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion) {
+                    //check whether lion or tiger can move across river
                     if(piece.getRow()==3&&(piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||
-                            piece.getCol()==6))
-                    {
-                        if(player1.pieces[7].alive&&player1.pieces[7].getCol()==piece.getCol())
-                        {
-                            if(player1.pieces[7].getRow()==4||player1.pieces[7].getRow()==5||player1.pieces[7].getRow()==6)
-                            {
-                                System.out.println("Rat in the river, cannot jump.");return false;
-                            }
-                        }
-                        if(player2.pieces[7].alive&&player2.pieces[7].getCol()==piece.getCol())
-                        {
-                            if(player2.pieces[7].getRow()==4||player2.pieces[7].getRow()==5||player2.pieces[7].getRow()==6)
-                            {
-                                System.out.println("Rat in the river, cannot jump.");return false;
+                            piece.getCol()==6)) {
+                        for(int i=0;i<2;i++) {
+                            if(i==0) piecek=player1.pieces[7];
+                            else piecek=player2.pieces[7];
+                            if(piecek.alive&&piecek.getCol()==piece.getCol()) {
+                                if(piecek.getRow()==4||piecek.getRow()==5||piecek.getRow()==6) {
+                                    System.out.println("Rat in the river, cannot jump.");return false;
+                                }
                             }
                         }
                         row = piece.getRow() + 4;
@@ -216,35 +183,27 @@ public class GameKBL extends KeyboardListener{
                 }
                 else row = piece.getRow() + 1;
                 col=piece.getCol();
-                if(checkConflict(row,col,player,piece)) return false;
+                if(checkConflict(row,col,player)) return false;
                 if(checkRiver(row,col,piece))
                 {
                     System.out.println("This piece can not across/in the river.");return false;
                 }
                 break;
             case "d":
-                if((piece.getCol() + 1)>7)
-                {
+                if((piece.getCol() + 1)>7) {
                     System.out.println("Out of bound.");return false;
                 }
-                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion)
-                {
-                    if(piece.getRow()==4||piece.getRow()==5||piece.getRow()==6)
-                    {
-                        if(player1.pieces[7].alive&&player1.pieces[7].getRow()==piece.getRow())
-                        {
-                            if((piece.getCol()==1&&(player1.pieces[7].getCol()==2||player1.pieces[7].getCol()==3))||
-                                    (piece.getCol()==4&&(player1.pieces[7].getCol()==5||player1.pieces[7].getCol()==6)))
-                            {
-                                System.out.println("Rat in the river, cannot jump.");return false;
-                            }
-                        }
-                        if(player2.pieces[7].alive&&player2.pieces[7].getRow()==piece.getRow())
-                        {
-                            if((piece.getCol()==1&&(player2.pieces[7].getCol()==2||player2.pieces[7].getCol()==3))||
-                                    (piece.getCol()==4&&(player2.pieces[7].getCol()==5||player2.pieces[7].getCol()==6)))
-                            {
-                                System.out.println("Rat in the river, cannot jump.");return false;
+                if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion) {
+                    //check whether lion or tiger can move across river
+                    if(piece.getRow()==4||piece.getRow()==5||piece.getRow()==6) {
+                        for(int i=0;i<2;i++) {
+                            if(i==0) piecek=player1.pieces[7];
+                            else piecek=player2.pieces[7];
+                            if(piecek.alive&&piecek.getRow()==piece.getRow()) {
+                                if((piece.getCol()==1&&(piecek.getCol()==2||piecek.getCol()==3))||
+                                        (piece.getCol()==4&&(piecek.getCol()==5||piecek.getCol()==6))) {
+                                    System.out.println("Rat in the river, cannot jump.");return false;
+                                }
                             }
                         }
                         col = piece.getCol() + 3;
@@ -253,7 +212,7 @@ public class GameKBL extends KeyboardListener{
                 }
                 else col = piece.getCol() + 1;
                 row=piece.getRow();
-                if(checkConflict(row,col,player,piece)) return false;
+                if(checkConflict(row,col,player)) return false;
                 if(checkRiver(row,col,piece))
                 {
                     System.out.println("This piece can not across/in the river.");return false;
@@ -262,48 +221,33 @@ public class GameKBL extends KeyboardListener{
             default: return false;
         }
 
-        if(player.getGroup()==GroupType.RED&&row==1&&col==4)
-        {
-            System.out.println("Can not move to your won Den.");return false;
+        if(player.getGroup()==GroupType.RED&&row==1&&col==4) {
+            System.out.println("Can not move to your own Den.");return false;
         }
-        if(player.getGroup()==GroupType.BLUE&&row==9&&col==4)
-        {
-            System.out.println("Can not move to your won Den.");return false;
+        if(player.getGroup()==GroupType.BLUE&&row==9&&col==4) {
+            System.out.println("Can not move to your own Den.");return false;
         }
         //check whether the piece can eat another piece
-        if(player.getGroup()==player1.getGroup())
+        Player playerM;
+        if(player.getGroup()==player1.getGroup()) playerM=player2;
+        else playerM=player1;
+        for(int i=0;i<8;i++)
         {
-            for(int i=0;i<8;i++)
+            if(playerM.pieces[i].alive&&
+                    playerM.pieces[i].getRow()==row&&playerM.pieces[i].getCol()==col)
             {
-                if(player2.pieces[i].alive&&
-                        player2.pieces[i].getRow()==row&&player2.pieces[i].getCol()==col)
+                if(piece.compareTo(playerM.pieces[i])<0)
                 {
-                    if(piece.compareTo(player2.pieces[i])<0)
-                    {
-                        System.out.println("Can not eat this piece.");return false;
-                    }
-                }
-            }
-        }
-        else
-        {
-            for(int i=0;i<8;i++)
-            {
-                if(player1.pieces[i].alive&&
-                        player1.pieces[i].getRow()==row&&player1.pieces[i].getCol()==col)
-                {
-                    if(piece.compareTo(player1.pieces[i])<0)
-                    {
-                        System.out.println("Can not eat this piece.");return false;
-                    }
+                    System.out.println("Can not eat this piece.");return false;
                 }
             }
         }
         return true;
     }
 
-    public boolean checkConflict(int row, int col, Player player, Piece piece)
+    public boolean checkConflict(int row, int col, Player player)
     {
+        //check whether a piece will conflict with another piece
         for(int i=0;i<8;i++)
         {
             if(player.pieces[i].alive&&
@@ -314,6 +258,7 @@ public class GameKBL extends KeyboardListener{
 
     public boolean checkRiver(int row,int col,Piece piece)
     {
+        //check whether a piece can move across/in the river
         if((4<=row&&row<=6)&&
                 (col==2||col==3||col==5||col==6))
         {
@@ -326,7 +271,6 @@ public class GameKBL extends KeyboardListener{
      * modify the pieces information stored in Player class.
      *
      */
-
     public void move(String command, Player player) {
         if(command.equals("Quit"))
         {
@@ -339,8 +283,8 @@ public class GameKBL extends KeyboardListener{
             GameRule a=new GameRule();
             a.printRule();
             ManualKBL manualKBL = new ManualKBL();
-            if(player.getGroup()==player1.getGroup()) manualKBL.listen(player1,player2,board,0);
-            else manualKBL.listen(player1,player2,board,1);
+            if(player.getGroup()==player1.getGroup()) manualKBL.listen(player1,player2,gameBoard,0);
+            else manualKBL.listen(player1,player2,gameBoard,1);
             return;
         }
         String[] tmp;
@@ -357,14 +301,14 @@ public class GameKBL extends KeyboardListener{
             case "Rat": piece = player.pieces[7]; break;
             default: piece = player.pieces[0];
         }
+        try{
         switch (tmp[1]) {
             case "a":
                 if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion)
                 {
                     if(piece.getRow()==4||piece.getRow()==5||piece.getRow()==6)
-                    {
                         piece.setCol(piece.getCol() - 3);
-                    }
+
                     else piece.setCol(piece.getCol() - 1);
                 }
                 else piece.setCol(piece.getCol() - 1);
@@ -374,9 +318,7 @@ public class GameKBL extends KeyboardListener{
                 {
                     if(piece.getRow()==7&&(piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||
                             piece.getCol()==6))
-                    {
                         piece.setRow(piece.getRow() - 4);
-                    }
                     else piece.setRow(piece.getRow() - 1);
                 }
                 else piece.setRow(piece.getRow() - 1);
@@ -386,9 +328,7 @@ public class GameKBL extends KeyboardListener{
                 {
                     if(piece.getRow()==3&&(piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||
                             piece.getCol()==6))
-                    {
                         piece.setRow(piece.getRow() + 4);
-                    }
                     else piece.setRow(piece.getRow() + 1);
                 }
                 else piece.setRow(piece.getRow() + 1);
@@ -397,61 +337,46 @@ public class GameKBL extends KeyboardListener{
                 if(piece.getPieceType()==PieceType.Tiger||piece.getPieceType()==PieceType.Lion)
                 {
                     if(piece.getRow()==4||piece.getRow()==5||piece.getRow()==6)
-                    {
                         piece.setCol(piece.getCol() + 3);
-                    }
                     else piece.setCol(piece.getCol() + 1);
                 }
                 else piece.setCol(piece.getCol() + 1);
                 break;
         }
-
+        }
+        catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("Out of  :" + e);
+        }
+        Player playerM;
+        GroupType GP;
         if(player.getGroup()==player1.getGroup())
         {
-            for(int i=0;i<8;i++)
-            {
-                if(player2.pieces[i].alive&&
-                        player2.pieces[i].getRow()==piece.getRow()&&player2.pieces[i].getCol()==piece.getCol())
-                {
-                    player2.pieces[i].remove();
-                    player2.PieceNum--;
-                }
-            }
-            if(piece.getRow()==9&&piece.getCol()==4) piece.inDen=true;
-            else if((4<=piece.getRow()&&piece.getRow()<=6)&&
-                    (piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||piece.getCol()==6)) piece.inRiver=true;
-            else if(((piece.getRow()==9)&&(piece.getCol()==3))||((piece.getRow()==9)&&(piece.getCol()==5))||
-                    ((piece.getRow()==8)&&(piece.getCol()==4)))
-            {
-                piece.inTrap=true;
-            }
-            else{
-                piece.inDen=false;
-                piece.inTrap=false;
-                piece.inRiver=false;
-            }
+            playerM=player2;
+            GP = GroupType.BLUE;
         }
         else
         {
-            for(int i=0;i<8;i++)
+            playerM=player1;
+            GP = GroupType.RED;
+        }
+        for(int i=0;i<8;i++)
+        {
+            if(playerM.pieces[i].alive&&
+                    playerM.pieces[i].getRow()==piece.getRow()&&playerM.pieces[i].getCol()==piece.getCol())
             {
-                if(player1.pieces[i].alive&&
-                        player1.pieces[i].getRow()==piece.getRow()&&player1.pieces[i].getCol()==piece.getCol())
-                {
-                    player1.pieces[i].remove();
-                    player1.PieceNum--;
-                }
+                playerM.pieces[i].remove();
+                playerM.PieceNum--;
             }
-            if(piece.getRow()==1&&piece.getCol()==4) piece.inDen=true;
-            else if((4<=piece.getRow()&&piece.getRow()<=6)&&
-                    (piece.getCol()==2||piece.getCol()==3||piece.getCol()==5||piece.getCol()==6)) piece.inRiver=true;
-            else if(((piece.getRow()==1)&&(piece.getCol()==3))||((piece.getRow()==1)&&(piece.getCol()==5))||
-                    ((piece.getRow()==2)&&(piece.getCol()==4))) piece.inTrap=true;
-            else{
-                piece.inDen=false;
-                piece.inTrap=false;
-                piece.inRiver=false;
-            }
+        }
+        if(gameBoard.board[piece.getRow()][piece.getCol()].getLocationType()==LocationType.DEN
+        &&gameBoard.board[piece.getRow()][piece.getCol()].getGroup()==GP) piece.inDen=true;
+        else if(gameBoard.board[piece.getRow()][piece.getCol()].getLocationType()==LocationType.RIVER) piece.inRiver=true;
+        else if(gameBoard.board[piece.getRow()][piece.getCol()].getLocationType()==LocationType.TRAP
+                &&gameBoard.board[piece.getRow()][piece.getCol()].getGroup()==GP) piece.inTrap=true;
+        else{
+            piece.inDen=false;
+            piece.inTrap=false;
+            piece.inRiver=false;
         }
     }
 

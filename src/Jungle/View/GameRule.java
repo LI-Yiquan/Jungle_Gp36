@@ -1,7 +1,5 @@
 package Jungle.View;
 
-import java.util.Scanner;
-
 public class GameRule implements Page {
     
     private String[] rule= {
@@ -25,9 +23,7 @@ public class GameRule implements Page {
         "   t.Rat can capture the other rat if both are in the river. The three sq",
         "   uares around the den, act as traps for the oppnent pieces. Any opponent",
         "    piece in traps can be captured by any animal.",
-    } ;  
-
-    private int returnTo;
+    } ;
 
     /**
      * Set the game rule
@@ -47,29 +43,12 @@ public class GameRule implements Page {
     }
 
     /**
-     * If returnTo is 1, the user will return to welcome page.
-     * If returnTo is 2, the user will return to GameBoard (Map page).
-     * @param returnTo
-     */
-    public void setReturnTo(int returnTo) {
-        this.returnTo = returnTo;
-    }
-
-    /**
-     * Get the return location.
-     * @return the number of returnTo
-     */
-    public int getReturnTo() {
-        return returnTo;
-    }
-
-    /**
      * Print the game rule to the user
      */
     public void printRule(){
         System.out.println("- - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
-        for (int line=0; line<this.rule.length;line++){
-            System.out.println(this.rule[line]);
+        for (String s : this.rule) {
+            System.out.println(s);
         }
         System.out.println();
         System.out.println("Game: return to game    Back: return to menu");
@@ -83,35 +62,6 @@ public class GameRule implements Page {
      */
     public void printToQuit(){
         System.out.println("One of the player has quited the game. Thank you for your playing.");
-    }
- 
-    /**
-     * Action as return and quit button on the GameRule page.
-     * It will print "Please enter "R" to close the GameRule page or enter "Q" to quit the game:  " and waiting until player inputs "R" or "Q".
-     * If "R" is entered, it will return the returnTo number to indicate which page to open.
-     * @return the number of returnTo 
-     */
-    public int playerPrompt(){
-        Scanner in = new Scanner(System.in);
-        while(true){
-            System.out.println("Please enter 'R' to close the GameRule page or enter 'Q' to quit the game:R" );
-            String input = in.next();
-            if(input.equals("R")|| input.equals("r")){
-                in.close();
-                return this.getReturnTo();
-            }else if(input.equals("q")|| input.equals("Q")){
-                in.close();
-                printToQuit();
-                return 0;
-            }else{
-                System.out.println("Wrong Input ! You can only enter R/Q.") ; 
-            }
-        }   
-    }
-    public static void main(String[] args) {
-       GameRule a=new GameRule();
-       a.printRule();
-       //int k = a.playerPrompt();
     }
 
 }

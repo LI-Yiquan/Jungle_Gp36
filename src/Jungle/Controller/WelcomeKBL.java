@@ -1,11 +1,6 @@
 package Jungle.Controller;
 
-import java.awt.event.*;
 import java.util.Scanner;
-
-/**
- *
- */
 
 public class WelcomeKBL extends KeyboardListener{
 

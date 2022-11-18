@@ -3,8 +3,6 @@ package Jungle.Controller;
 
 import Jungle.Model.Board;
 import Jungle.Model.Player;
-
-import java.awt.event.KeyEvent;
 import java.util.Scanner;
 
 public class ManualKBL extends KeyboardListener{

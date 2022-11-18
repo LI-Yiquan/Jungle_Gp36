@@ -1,6 +1,5 @@
 package Jungle.Controller;
 
-import java.awt.event.KeyListener;
 
 abstract public class KeyboardListener{
 
