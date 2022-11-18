@@ -162,14 +162,14 @@ public class GameKBL extends KeyboardListener{
                     {
                         if(player1.pieces[7].alive&&player1.pieces[7].getCol()==piece.getCol())
                         {
-                            if(player1.pieces[7].getCol()==4||player1.pieces[7].getCol()==5||player1.pieces[7].getCol()==6)
+                            if(player1.pieces[7].getRow()==4||player1.pieces[7].getRow()==5||player1.pieces[7].getRow()==6)
                             {
                                 System.out.println("Rat in the river, cannot jump.");return false;
                             }
                         }
                         if(player2.pieces[7].alive&&player2.pieces[7].getCol()==piece.getCol())
                         {
-                            if(player2.pieces[7].getCol()==4||player2.pieces[7].getCol()==5||player2.pieces[7].getCol()==6)
+                            if(player2.pieces[7].getRow()==4||player2.pieces[7].getRow()==5||player2.pieces[7].getRow()==6)
                             {
                                 System.out.println("Rat in the river, cannot jump.");return false;
                             }
@@ -198,14 +198,14 @@ public class GameKBL extends KeyboardListener{
                     {
                         if(player1.pieces[7].alive&&player1.pieces[7].getCol()==piece.getCol())
                         {
-                            if(player1.pieces[7].getCol()==4||player1.pieces[7].getCol()==5||player1.pieces[7].getCol()==6)
+                            if(player1.pieces[7].getRow()==4||player1.pieces[7].getRow()==5||player1.pieces[7].getRow()==6)
                             {
                                 System.out.println("Rat in the river, cannot jump.");return false;
                             }
                         }
                         if(player2.pieces[7].alive&&player2.pieces[7].getCol()==piece.getCol())
                         {
-                            if(player2.pieces[7].getCol()==4||player2.pieces[7].getCol()==5||player2.pieces[7].getCol()==6)
+                            if(player2.pieces[7].getRow()==4||player2.pieces[7].getRow()==5||player2.pieces[7].getRow()==6)
                             {
                                 System.out.println("Rat in the river, cannot jump.");return false;
                             }
